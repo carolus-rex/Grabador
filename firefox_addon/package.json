@@ -1,0 +1,16 @@
+{
+  "title": "Youtube Tab Name Listener",
+  "name": "youtubetabnamelistener",
+  "version": "0.0.1",
+  "description": "Escucha los nombres de las tabs de youtube y las distribuye por un socket tcp",
+  "main": "index.js",
+  "author": "daniel",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jetpack"
+  ]
+}
