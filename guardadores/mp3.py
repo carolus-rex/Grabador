@@ -40,6 +40,11 @@ class Guardador(GuardadorBase):
                             self.channels = value
                         elif key == "format_in_bits":
                             self.formatM = value
+                        elif key == "cerrar":
+                            # Crea un nuevo archivo y guarda todo lo hecho hasta ahora
+                            pass
+                        else:
+                            print("Data tipo %s con valor %s no reconocida" %(key, value))
                     sound_chunks = 0
                     sound_pcm = b""
                     self.crear_nuevo_archivo()

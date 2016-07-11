@@ -1,5 +1,6 @@
 from threading import Thread
 import kivy
+from kivy.uix.togglebutton import ToggleButton
 from pywinvolume.volume_controller import KeyVolumeController
 
 from grabador import Grabador
@@ -19,6 +20,16 @@ __author__ = "Daniel"
 Builder.load_file("grabadorui.kv")
 
 SPEAKERS_FRIENDLY_NAME = "Altavoz/Auricular (Realtek High Definition Audio)"
+
+class AskToggleButton(ToggleButton):
+    check_premission = ObjectProperty(None)
+
+    def on_touch_down(self, touch):
+        if self.check_permission():
+            super(AskToggleButton, self).on_touch_down(touch)
+        else:
+            return False
+
 
 class GrabadorUi(BoxLayout):
     def __init__(self, **kwargs):
@@ -55,10 +66,37 @@ class GrabadorUi(BoxLayout):
         self.grabador.cambios["output"] = device
 
     def toggle_grabar(self, wid, state):
-        if state == "normal":
+        if state == "normal": # Deja de grabar
+            # MUY IMPORTANTE QUE ESTA LINEA SE QUEDE AHI
+            # CUANDO CAMBIA DE ESTADO pausartoggle a normal LE ORDENA AL GRABADOR
+            # QUE EMPIECE A GRABAR(self.grabador.guardar = True)
+            #  Y ESO ES LO QUE NO QUEREMOS QUE OCURRA
+            # LA SIGUIENTE LINEA HACE QUE DEJE DE GRABAR (self.grabador.guardar = False)
+            # ES POR ESO QUE NO DEBE MOVERSE
+            self.ids.grabartoggle.text = "Grabar"
+            self.ids.pausartoggle.state = "normal"
             self.grabador.guardar = False
-        elif state == "down":
+            #self.grabador.cambios["cerrar"] = True        #Puedo cerrar el archivo asi
+            self.grabador.guardador.crear_nuevo_archivo()  #Tambien puedo hacerlo asi, no me convence mucho
+        elif state == "down": # Empieza a grabar
+            self.ids.grabartoggle.text = "Detener"
             self.grabador.guardar = True
+            #self.ids.pausartoggle.state = "normal"
+
+    def permitir_pausartoggle(self):
+        if self.ids.grabartoggle.state == "down":
+            return True
+        elif self.ids.grabartoggle.state == "normal":
+            return False
+
+    def toggle_pausar(self, wid, state):
+        """Indica al grabador que deje de enviar data a la lista para guardar."""
+        if state == "normal": # Empieza a mandar datos (no está pausado)
+            self.ids.pausartoggle.text = "Pausar"
+            self.grabador.guardar = True
+        elif state == "down": # Deja de mandar datos (está pausado)
+            self.ids.pausartoggle.text = "Pausado"
+            self.grabador.guardar = False
 
     def change_rate(self, wid, rate):
         if len(rate) > 3 and (int(rate) != 0):

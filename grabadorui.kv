@@ -8,10 +8,17 @@
         font_size: 30
     ToggleButton:
         text: "grabar"
-        id: gabartoggle
+        id: grabartoggle
         size_hint_y: None
         height: 60
         on_state: root.toggle_grabar(*args)
+    AskToggleButton:
+        text: "pausar"
+        id: pausartoggle
+        size_hint_y: None
+        height: 60
+        check_permission: root.permitir_pausartoggle
+        on_state: root.toggle_pausar(*args)
     #Etiqueta:
         #text:"Buen intento Judas, solo eliminaste la copia de trabajo. Desactive el cambio de input y output para que no juegues"
         #font_size: 25
