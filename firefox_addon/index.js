@@ -1,3 +1,12 @@
+/*Add-On creado para comunicar el cambio de nombre/video/titulo al grabador.ç
+Como funciona:
+ El add-on actua como servidor TCP para comunicarse con el grabador
+ El grabador solicitara la conexión a firefox. Firefox le responde con una
+ lista de las pestañas de youtube abiertas CON REPRODUCCION ACTIVA (es decir la
+ pagina de un video) con sus correspondientes ID.
+ El grabador responde con el ID de la pestaña de youtube elegida a monitorear.
+ Firefox le responde cada vez que el titulo cambie (no es necesario que le responda con
+ el nombre de pestaña actual porque se supone que el grabador ya lo cogió).*/
 ACTUAL_NAME = ""
 
 require("sdk/ui/button/action").ActionButton({
