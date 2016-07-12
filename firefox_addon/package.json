@@ -12,5 +12,11 @@
   "license": "MIT",
   "keywords": [
     "jetpack"
-  ]
+  ],
+  "permissions" : {
+  "tcp-socket" : {
+    "description" : "Create TCP sockets and communicate over them."
+  }
 }
+}
+
