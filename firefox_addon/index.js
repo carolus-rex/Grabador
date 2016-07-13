@@ -9,12 +9,12 @@ Como funciona:
  el nombre de pestaña actual porque se supone que el grabador ya lo cogió).*/
 ACTUAL_NAME = ""
 
-require("sdk/ui/button/action").ActionButton({
+/*require("sdk/ui/button/action").ActionButton({
   id: "list-tabs",
   label: "List Tabs",
   icon: "./icon-16.png",
   onClick: listTabs
-});
+});*/
 
 /*while (true)
   console.log("hola");*/
@@ -25,23 +25,64 @@ const {getBrowserForTab, getTabForContentWindow} = require("sdk/tabs/utils");*/
 const {Ci, Cu} = require("chrome");
 /*Cu.import("resource://gre/modules/XPCOMUtils.jsm", this);*/
 Cu.import("resource://gre/modules/Timer.jsm");
+var { TextEncoder, TextDecoder } = Cu.import("resource://gre/modules/Services.jsm");
 
+
+//Crear servidor TCP
+
+let { TCPServerSocket } = Cu.import("resource://gre/modules/Services.jsm", {});
+
+const PORT = 9000;
+
+var server = new TCPServerSocket(PORT, {binaryType:"arraybuffer"}, -1);
+var to_cliente;
+
+server.onconnect = function (event){
+                        console.log("Conexión iniciada");
+                        to_cliente = event.socket;
+                        var encoded_data = new TextEncoder("utf-8").encode(listTabs());
+                        console.log("encoded_data: ", encoded_data);
+                        to_cliente.send(encoded_data.buffer);
+                        to_cliente.ondata = function(event){
+                                                monitorearTab(event.data);
+                                            };
+                   }
+
+function monitorearTab(tabID){
+    console.log("data recivida:", tabID )
+    tabID = new TextDecoder("utf-8").decode(tabID);
+    const {modelFor} = require('sdk/model/core');
+
+    console.log("ID de pestaña:", tabID);
+    var tab;
+    var tabs = require("sdk/tabs");
+    var tabUtils = require("sdk/tabs/utils");
+
+    tab = tabUtils.getTabForId(tabID);
+    tab = modelFor(tab);
+    console.log("Pestaña recuperada: ", tab);
+    ACTUAL_NAME = tab.title.slice(0, tab.title.length - 10);
+    console.log("Nombre de pestaña:", ACTUAL_NAME);
+    setTitleTimer(tab);
+}
 
 function listTabs() {
   var is_youtube_video = /^https:\/\/www\.youtube\.com\/watch.*/;
   var tabs = require("sdk/tabs");
+  var jsonPestañas = {};
   for (let tab of tabs){
     //console.log(tab.url);
     if (is_youtube_video.test(tab.url)){
-      ACTUAL_NAME = tab.title.slice(0, tab.title.length - 10);
-      console.log(ACTUAL_NAME);
-      setTitleTimer(tab);
+      console.log("Pestaña:", tab.id, tab.title);
+      jsonPestañas[tab.id] = tab.title;
       //setChangeTabNameListener(tab);
       //var lowLevel = viewFor(tab);
       //var browser = getBrowserForTab(lowLevel);
       //browser.addProgressListener(progressListener);
     }
   }
+  console.log("El Json es: ",jsonPestañas,JSON.stringify(jsonPestañas));
+  return JSON.stringify(jsonPestañas);
 }
 
 
@@ -51,7 +92,9 @@ function setTitleTimer(tab){
             NEW_NAME = tab.title.slice(0, tab.title.length - 10);
             if (ACTUAL_NAME != NEW_NAME){
                 ACTUAL_NAME = NEW_NAME
-                console.log(ACTUAL_NAME);
+                console.log("Cambio de nombre a:", ACTUAL_NAME);
+                to_cliente.send((new TextEncoder("utf-8").encode(ACTUAL_NAME)).buffer);
+                console.log("Cambio enviado con exito");
             }
         },
     50);

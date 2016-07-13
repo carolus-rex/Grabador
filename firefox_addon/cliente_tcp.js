@@ -1,7 +1,7 @@
 /*Cliente TCP para firefox*/
 
 var { Cu } = require("chrome");
-//var { TextEncoder, TextDecoder } = Cu.import("resource://gre/modules/Services.jsm");
+var { TextEncoder, TextDecoder } = Cu.import("resource://gre/modules/Services.jsm");
 
 
 function createTCPSocket(location, port, options) {
@@ -34,12 +34,13 @@ console.log("data array", data);
 console.log("tipo", typeof data);*/
 
 
-socket = createTCPSocket("localhost", 2500);
+socket = createTCPSocket("localhost", 2500, {binaryType:"arraybuffer"});
 socket.ondata = function (event) {
     if (typeof event.data === 'string') {
         console.log('Get a string: ' + event.data);
     } else {
-        console.log('Get a Uint8Array');
+        var decoded_data = new TextDecoder("utf-8").decode(event.data);
+        console.log('Get a Uint8Array' + decoded_data);
     }
 }
 //var uint8array = new TextEncoder("utf-8").encode("hola");
@@ -58,7 +59,7 @@ require("sdk/ui/button/action").ActionButton({
 });
 
 function sender(){
-  socket.send("caca")
+  socket.send((new TextEncoder("utf-8").encode("hola")).buffer);
 }
 /*socket = createTCPSocket("localhost", 2500, {binaryType:"arraybuffer"});*/
 /*
