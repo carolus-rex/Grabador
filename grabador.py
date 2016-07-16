@@ -6,8 +6,6 @@ from guardadores.mp3 import Guardador
 __author__ = "Daniel"
 
 
-#TODO: CREAR UN GUARDADOR PARA WAV
-
 class Grabador(object):
     def __init__(self):
         self.p = pyaudio.PyAudio()

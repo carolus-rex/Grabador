@@ -5,8 +5,9 @@ Como funciona:
  lista de las pestañas de youtube abiertas CON REPRODUCCION ACTIVA (es decir la
  pagina de un video) con sus correspondientes ID.
  El grabador responde con el ID de la pestaña de youtube elegida a monitorear.
- Firefox le responde cada vez que el titulo cambie (no es necesario que le responda con
- el nombre de pestaña actual porque se supone que el grabador ya lo cogió).*/
+ Firefox le responde cada vez que el titulo cambie (ES NECESARIO que le responda con
+ el nombre de pestaña actual porque puede que haya pasado mucho tiempo
+ desde que el grabador recivio los datos).*/
 ACTUAL_NAME = ""
 
 /*require("sdk/ui/button/action").ActionButton({
@@ -63,6 +64,8 @@ function monitorearTab(tabID){
     console.log("Pestaña recuperada: ", tab);
     ACTUAL_NAME = tab.title.slice(0, tab.title.length - 10);
     console.log("Nombre de pestaña:", ACTUAL_NAME);
+    var encoded_data = new TextEncoder("utf-8").encode(ACTUAL_NAME);
+    to_cliente.send(encoded_data.buffer);
     setTitleTimer(tab);
 }
 
