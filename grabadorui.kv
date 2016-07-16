@@ -1,3 +1,14 @@
+<YoutubePopup>:
+    grabadorui:
+    on_open: self.grabadorui.crear_guardador_youtube(*args)
+    on_dismiss: self.grabadorui.quitar_popup(*args)
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text:"Elige la pestaña"
+        VistaScroll:
+            id: vista_scroll
+
 <GrabadorUi>:
     orientation: "vertical"
     padding: 30
@@ -87,3 +98,10 @@
                 input_filter: "int"
                 on_text: root.change_min_time(*args)
         Switch:
+        BoxLayout:
+            orientation: "vertical"
+            ToggleButton:
+                text:"Modo Youtube"
+                id:youtubetoggle
+                on_state: root.toggle_youtube(*args)
+

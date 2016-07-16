@@ -1,9 +1,13 @@
+from functools import partial
 from threading import Thread
+from time import sleep
+
 import kivy
 from kivy.uix.togglebutton import ToggleButton
 from pywinvolume.volume_controller import KeyVolumeController
 
 from grabador import Grabador
+from guardadores.youtube import GuardadorMP3
 from widgetsbasicos import *
 
 kivy.require("1.9.0")
@@ -20,6 +24,9 @@ __author__ = "Daniel"
 Builder.load_file("grabadorui.kv")
 
 SPEAKERS_FRIENDLY_NAME = "Altavoz/Auricular (Realtek High Definition Audio)"
+
+class YoutubePopup(Popup):
+    grabadorui = ObjectProperty()
 
 class AskToggleButton(ToggleButton):
     check_premission = ObjectProperty(None)
@@ -45,6 +52,8 @@ class GrabadorUi(BoxLayout):
 
         self.ids.outputs.text = self.grabador.p.get_default_output_device_info()["name"]
         self.ids.outputs.values = self.grabador.get_outputs()
+        self._guardador = None
+        self._tab_selected = False
 
     def search_device(self, name):
         index = 0
@@ -97,6 +106,57 @@ class GrabadorUi(BoxLayout):
         elif state == "down": # Deja de mandar datos (está pausado)
             self.ids.pausartoggle.text = "Pausado"
             self.grabador.guardar = False
+
+    def toggle_youtube(self, wid, state):
+        if state == "down":
+            YoutubePopup(grabadorui=self).open()
+
+    def crear_guardador_youtube(self, wid, *args):
+        self.grabador.guardar = False
+        guardador = GuardadorMP3(self.grabador)
+        while True:
+            data = guardador.youtube.get_tabs()
+            print("Esta es la data del bucle: ", data)
+            if data is not None:
+                break
+            # print("No hay tabs...")
+            sleep(0.001) # Esto es un asco, lo se, pero no se me ocurre nada mas que sea facil de implementar
+        #data = guardador.youtube.get_tabs()
+        if len(data) == 1:
+            id = tuple(data.keys())[0]
+            print("solo tengo una data, voy a enviar esta id : ", id)
+            #print("Increiblemente mi data ahora es esto: ", data)
+            #Solo tengo una opcin posible, asi que la elijo automaticamente sin preguntarle al usuario
+            self.elegir_tab(wid,
+                            id,
+                            guardador)
+            return
+        for id, title in data:
+            button = Button(text=title,on_press=partial(self.elegir_tab, wid, id, guardador))
+            self.ids.vistascroll.add_cuadro(button)
+
+    def quitar_popup(self, wid, *args):
+        if not self._tab_selected:
+            self._guardador.terminar()
+        self._tab_selected = False
+        #wid.ids.vista_scroll.borrar_cuadros()
+
+    def elegir_tab(self, wid, id, guardador):
+        #TODO: Implementar en el Grabador un mejor metodo para hacer el cambio de Guardador
+        print("Tab elegida")
+        while self.grabador.data_chunks:
+            sleep(0.03)
+        print("Grabador vacio data")
+        self.grabador.guardador.grabador = None
+        self.grabador.guardador = guardador
+        print("Tab id a elegir: ", id)
+        guardador.youtube.set_tab(id)
+        #print("El grabador es: ", guardador.grabador)
+        #sleep(5)
+        self.grabador.guardar = True
+        #TODO: Fix the race condition. se produce porque el nombre y la autorizacion para que el grabador guarde ocurren casi al mismo tiempo
+        self._tab_selected = True
+        wid.dismiss()
 
     def change_rate(self, wid, rate):
         if len(rate) > 3 and (int(rate) != 0):
