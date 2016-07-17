@@ -115,15 +115,13 @@ class GrabadorUi(BoxLayout):
     def crear_guardador_youtube(self, wid, *args):
         self.grabador_estado_previo = self.grabador.guardar
         self.grabador.guardar = False
-        guardador = GuardadorMP3(self.grabador)
-        while True:
-            data = guardador.youtube.get_tabs()
-            print("Esta es la data del bucle: ", data)
-            if data is not None:
-                break
-            # print("No hay tabs...")
-            sleep(0.001) # Esto es un asco, lo se, pero no se me ocurre nada mas que sea facil de implementar
-        #data = guardador.youtube.get_tabs()
+        guardador = GuardadorMP3(partial(self.on_youtube_lista__tabs_llega, wid),
+                                 self.grabador)
+
+    def on_youtube_lista__tabs_llega(self, wid, cliente_youtube, lista_tabs):
+        print("Llego la lista de tabs")
+        data = lista_tabs
+        guardador = cliente_youtube.guardador
         if len(data) == 1:
             id = tuple(data.keys())[0]
             print("solo tengo una data, voy a enviar esta id : ", id)

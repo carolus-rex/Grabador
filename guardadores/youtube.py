@@ -13,7 +13,8 @@ from guardadores.base import GuardadorBase
 
 
 class ClienteYoutube(Thread):
-    def __init__(self, guardador):
+    def __init__(self, guardador, on_lista_llega):
+        self.on_lista_llega = on_lista_llega
         self.guardador = guardador
         self.client = socket(AF_INET, SOCK_STREAM)
         self.add = ("127.0.0.1", 9000)
@@ -50,6 +51,8 @@ class ClienteYoutube(Thread):
                 self.tabs = json.loads(data.decode())
                 print("Data recivida: ", data)
                 print("mis tabs son: ", self.tabs)
+                Thread(target=self.on_lista_llega,
+                       args=(self, self.tabs)).start() #Es un asco, pero no se me ocurre nada
                 while self.tab_id is None:
                     #print("Esto es la tab id: ",self.tab_id)
                     sleep(0.001)
@@ -137,8 +140,8 @@ class GuardadorWAV(GuardadorBase):
 
 
 class GuardadorMP3(GuardadorBase):
-    def __init__(self, grabador=None):
-        self.youtube = ClienteYoutube(self)
+    def __init__(self, on_lista, grabador=None):
+        self.youtube = ClienteYoutube(self, on_lista)
         self.PATH = "C:\\Users\\Administrador\\grabado\\"
         super(GuardadorMP3, self).__init__(grabador)
 
