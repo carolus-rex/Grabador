@@ -94,6 +94,9 @@ class GuardadorWAV(GuardadorBase):
                         sound = sound_pcm
                         #print(rms)
                         if rms > self.ruido_ambiente:
+                            if self.archivo is None or self.archivo.closed:
+                                print("Crear nuevo archivo por archivo cerrado o None")
+                                self.crear_nuevo_archivo()
                             self.archivo.writeframes(sound)
                         sound_chunks = 0
                         sound_pcm = b""
@@ -114,7 +117,7 @@ class GuardadorWAV(GuardadorBase):
                             print("Data tipo %s con valor %s no reconocida" %(key, value))
                     sound_chunks = 0
                     sound_pcm = b""
-                    self.crear_nuevo_archivo()
+                    self.archivo.close()
             else:
                 sleep((1/self.grabador.rate) * self.grabador.CHUNK)
 
@@ -137,20 +140,7 @@ class GuardadorMP3(GuardadorBase):
     def __init__(self, grabador):
         self.youtube = ClienteYoutube(self)
         self.PATH = "C:\\Users\\Administrador\\grabado\\"
-        self.archivo_min_duration = 60
-        self.grabador = grabador
-        self.CHUNK = self.grabador.CHUNK
-        self.formatM = pyaudio.paInt16 if 1 <= self.grabador.format_in_bits<= 16 else pyaudio.paInt32
-        self.channels = self.grabador.channels
-        self.rate = self.grabador.rate
-        self.archivo = None
-        self.archivo_name = None
-        #self.crear_nuevo_archivo()
-        self.tamaño_chunk_ideal = 8192
-        self.ruido_ambiente = 0.00028
-        self._silencio = True
-        Thread.__init__(self)
-        self.start()
+        super(GuardadorMP3, self).__init__(grabador)
 
     def run(self):
         print("GuardadorMp3 loop")

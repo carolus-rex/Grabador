@@ -15,7 +15,6 @@ class GuardadorBase(Thread):
         self.rate = self.grabador.rate
         self.archivo = None
         self.archivo_name = None
-        self.crear_nuevo_archivo()
         self.tamaño_chunk_ideal = 8192
         self.ruido_ambiente = 0.00028
         self._silencio = True

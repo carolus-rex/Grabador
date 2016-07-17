@@ -5,6 +5,7 @@ from guardadores.base import GuardadorBase
 
 __author__ = "Daniel"
 
+
 class Guardador(GuardadorBase):
     def run(self):
         sound_pcm = b""
@@ -23,13 +24,14 @@ class Guardador(GuardadorBase):
                         if rms > self.ruido_ambiente:
                             if self._silencio:
                                 self._silencio = False
-                                #self.crear_nuevo_archivo()
+                            if self.archivo is None or self.archivo.closed:
+                                self.crear_nuevo_archivo()
                             self.archivo.writeframes(sound)
                         else:
                             if not self._silencio:
                                 print("Grabación Terminada")
                                 self._silencio = True
-                                self.crear_nuevo_archivo()
+                                self.archivo.close()
                         sound_chunks = 0
                         sound_pcm = b""
                 else:
@@ -47,22 +49,24 @@ class Guardador(GuardadorBase):
                             print("Data tipo %s con valor %s no reconocida" %(key, value))
                     sound_chunks = 0
                     sound_pcm = b""
-                    self.crear_nuevo_archivo()
+                    self.archivo.close()
             else:
                 sleep((1/self.grabador.rate) * self.grabador.CHUNK)
 
     def crear_nuevo_archivo(self):
         print("Crear nuevo archivo?")
         try:
-            self.archivo.close()
             if self.archivo.getduration() < self.archivo_min_duration:
+                # Si el archivo es muy corto reusa el existente
                 self.archivo = lame.open(self.archivo_name, "wb")
                 print("No")
             else:
+                # Crea un nuevo archivo
                 self.archivo_name = "C:\\Users\\Administrador\\grabado\\" + strftime("%y-%m-%d--%H-%M-%S") + ".mp3"
                 self.archivo = lame.open(self.archivo_name, "xb")
                 print("Si " + self.archivo_name)
         except AttributeError:
+            # Crea el primer archivo
             self.archivo_name = "C:\\Users\\Administrador\\grabado\\" + strftime("%y-%m-%d--%H-%M-%S") + ".mp3"
             self.archivo = lame.open(self.archivo_name, "wb")
             print("Si " + self.archivo_name)
