@@ -23,6 +23,7 @@ class ClienteYoutube(Thread):
         self.start()
 
     def run(self):
+        #TODO: Reemplazar los " " por un caracter mas relacionado con el original
         print("Thread Iniciado cliente youtube")
         rep = {"\\": " ",
                "/": " ",
@@ -39,6 +40,7 @@ class ClienteYoutube(Thread):
         pattern = re.compile("|".join(rep.keys()))
 
         while True:
+            #TODO: Haz algo para evitar de que se rompa el programa porque no hay servidor(firefox) abierto
             self.client.connect(self.add)
             print("Cliente conectado")
             while True:
@@ -52,12 +54,15 @@ class ClienteYoutube(Thread):
                     #print("Esto es la tab id: ",self.tab_id)
                     sleep(0.001)
                 print("Loop tab_id roto")
+                #TODO: Controlar que la data enviada sea una opcion de entre las recividas
+                #TODO: ¿Que hacer si no tengo tabs de youtube?
                 self.client.send(self.tab_id.encode())
                 self.tabs = None
                 self.tab_id = None
                 while True:
                     data = self.client.recv(65536)
                     titulo = data.decode()
+                    #TODO: ¿Si la pestaña ya no es de youtube que hago?
                     print("Reemplazo de caracteres inadecuados INICIO")
                     titulo = pattern.sub(lambda m: rep[re.escape(m.group(0))], titulo)
                     print("Reemplazo de caracteres inadecuados FIN")
@@ -81,6 +86,9 @@ class GuardadorWAV(GuardadorBase):
         sound_pcm = b""
         sound_chunks = 0
         while True:
+            if self._iniciado_sin_grabador:
+                sleep(0.1)
+                continue
             if self.grabador.data_chunks:
                 data = self.grabador.data_chunks.pop(0)
                 if isinstance(data, bytes):
@@ -129,7 +137,7 @@ class GuardadorWAV(GuardadorBase):
 
 
 class GuardadorMP3(GuardadorBase):
-    def __init__(self, grabador):
+    def __init__(self, grabador=None):
         self.youtube = ClienteYoutube(self)
         self.PATH = "C:\\Users\\Administrador\\grabado\\"
         super(GuardadorMP3, self).__init__(grabador)
@@ -139,6 +147,9 @@ class GuardadorMP3(GuardadorBase):
         sound_pcm = b""
         sound_chunks = 0
         while True:
+            if self._iniciado_sin_grabador:
+                sleep(0.1)
+                continue
             if self.grabador.data_chunks:
                 data = self.grabador.data_chunks.pop(0)
                 if isinstance(data, bytes):

@@ -11,6 +11,9 @@ class Guardador(GuardadorBase):
         sound_pcm = b""
         sound_chunks = 0
         while True:
+            if self._iniciado_sin_grabador:
+                sleep(0.1)
+                continue
             if self.grabador.data_chunks:
                 data = self.grabador.data_chunks.pop(0)
                 if isinstance(data, bytes):

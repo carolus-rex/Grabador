@@ -144,13 +144,8 @@ class GrabadorUi(BoxLayout):
         #wid.ids.vista_scroll.borrar_cuadros()
 
     def elegir_tab(self, wid, id, guardador):
-        #TODO: Implementar en el Grabador un mejor metodo para hacer el cambio de Guardador
         print("Tab elegida")
-        while self.grabador.data_chunks:
-            sleep(0.03)
-        print("Grabador vacio data")
-        self.grabador.guardador.grabador = None
-        self.grabador.guardador = guardador
+        self.grabador.cambiar_guardador(guardador)
         print("Tab id a elegir: ", id)
         guardador.youtube.set_tab(id)
         #print("El grabador es: ", guardador.grabador)

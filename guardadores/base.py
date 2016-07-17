@@ -7,13 +7,20 @@ __author__ = "Daniel"
 
 
 class GuardadorBase(Thread):
-    def __init__(self, grabador):
+    def __init__(self, grabador=None):
         self.archivo_min_duration = 60
-        self.grabador = grabador
-        self.CHUNK = self.grabador.CHUNK
-        self.formatM = pyaudio.paInt16 if 1 <= self.grabador.format_in_bits<= 16 else pyaudio.paInt32
-        self.channels = self.grabador.channels
-        self.rate = self.grabador.rate
+        # _iniciado sin grabador permite crear guardadores sin que tengan que ser
+        # creados por un grabador y con ello facilmente se pueda acoplar a un grabador
+        # previamente creado.
+        if grabador is None:
+            self._iniciado_sin_grabador = True
+        else:
+            self._iniciado_sin_grabador = False
+            self.grabador = grabador
+            self.CHUNK = self.grabador.CHUNK
+            self.formatM = pyaudio.paInt16 if 1 <= self.grabador.format_in_bits<= 16 else pyaudio.paInt32
+            self.channels = self.grabador.channels
+            self.rate = self.grabador.rate
         self.archivo = None
         self.archivo_name = None
         self.tamaño_chunk_ideal = 8192
@@ -74,7 +81,8 @@ class GuardadorBase(Thread):
         elif orden == "format_in_bits":
             self.formatM = valor
         elif orden == "cerrar":
-            # Crea un nuevo archivo y guarda lo hecho hasta ahora
+            # Se asegura de que se cierre el archivo sin
+            # necesidad de que algo haya cambiado.
             print("Orden de cerrar el archivo")
         else:
             print("Data tipo %s con valor %s no reconocida" %(orden, valor))
@@ -120,3 +128,7 @@ class GuardadorBase(Thread):
 
     def definir_tiempo_de_grabacion_minimo(self, segundos):
         self.archivo_min_duration = segundos
+
+    def agregar_grabador(self, grabador):
+        self.grabador = grabador
+        self._iniciado_sin_grabador = False

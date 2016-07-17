@@ -1,3 +1,5 @@
+from time import sleep
+
 import numpy as np
 import pyaudio
 
@@ -22,6 +24,7 @@ class Grabador(object):
         self.cambios = {}
         self.guardador = Guardador(self)
         self.guardador.setName("Guardador")
+        self._bloquear_data_chunks = False
 
     def get_inputs(self):
         values = []
@@ -55,7 +58,7 @@ class Grabador(object):
             if self.format_in_bits not in (16, 24):
                 sonido = self.simular_formato(sonido)
             self.stream.write(sonido)
-            if self.guardar:
+            if self.guardar and not self._bloquear_data_chunks:
                 self.data_chunks.append(sonido)
             if self.cambios:
                 tx_cambios = {}
@@ -78,7 +81,7 @@ class Grabador(object):
                 self.cambios.clear()
                 self.stream.close()
                 self.crear_stream()
-                if tx_cambios:
+                if tx_cambios and not self._bloquear_data_chunks:
                     self.data_chunks.append(tx_cambios)
             #sleep(self.CHUNK * (1/self.rate))
 
@@ -97,6 +100,7 @@ class Grabador(object):
                                   output_device_index=self.fuente)
 
     def simular_formato(self, sound):
+        #TODO: Arregla este metodo
         if 1 <= self.format_in_bits <= 16:
             nptype = np.int16
             factor_normalizador = 32768
@@ -119,6 +123,28 @@ class Grabador(object):
         data = (data_fake).astype(nptype, copy=False)
         return data.tobytes()
 
+    def cambiar_guardador(self, guardador):
+        # El grabador manipulara directamente los valores del guardador
+        # para evitar estupideces. Quiza esto sea una estupidez
+        self._bloquear_data_chunks = True
+        while self.data_chunks:
+            sleep(0.1)
+        print("Grabador vacio data")
+        # Me aseguro de que todos los datos registrados se graben
+        try:
+            self.guardador.archivo.close()
+        except AttributeError:
+            pass
+        #Esto causara un crash Nonetype. Es feo, pero es facil de implementar
+        self.guardador.grabador = None
+        #sleep(5)
+        guardador.channels = self.channels
+        guardador.CHUNK = self.CHUNK
+        guardador.formatM = pyaudio.paInt16 if 1 <= self.format_in_bits <= 16 else pyaudio.paInt32
+        guardador.rate = self.rate
+        guardador.agregar_grabador(self)
+        self.guardador = guardador
+        self._bloquear_data_chunks = False
 
 if __name__ == "__main__":
     Grabador().iniciar()

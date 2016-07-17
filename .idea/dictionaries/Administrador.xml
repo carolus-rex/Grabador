@@ -2,10 +2,15 @@
   <dictionary name="Administrador">
     <words>
       <w>acciones</w>
+      <w>arregla</w>
+      <w>asegura</w>
+      <w>cambiado</w>
       <w>cambios</w>
+      <w>cierre</w>
       <w>ejecute</w>
       <w>elijo</w>
       <w>empieza</w>
+      <w>entre</w>
       <w>escalador</w>
       <w>está</w>
       <w>formato</w>
@@ -13,12 +18,14 @@
       <w>grabación</w>
       <w>grabado</w>
       <w>grabar</w>
+      <w>haya</w>
       <w>indica</w>
       <w>interpretar</w>
       <w>lugar</w>
       <w>modifique</w>
       <w>momento</w>
       <w>mínimo</w>
+      <w>necesidad</w>
       <w>normalizador</w>
       <w>nuevo</w>
       <w>ocurriese</w>
