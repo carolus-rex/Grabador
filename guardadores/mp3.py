@@ -36,17 +36,7 @@ class Guardador(GuardadorBase):
                         sound_pcm = b""
                 else:
                     for key, value in data.items():
-                        if key == "rate":
-                            self.rate = value
-                        elif key == "channels":
-                            self.channels = value
-                        elif key == "format_in_bits":
-                            self.formatM = value
-                        elif key == "cerrar":
-                            # Crea un nuevo archivo y guarda todo lo hecho hasta ahora
-                            pass
-                        else:
-                            print("Data tipo %s con valor %s no reconocida" %(key, value))
+                        self.interpretar_orden(key, value)
                     sound_chunks = 0
                     sound_pcm = b""
                     self.archivo.close()

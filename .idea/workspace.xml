@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e54b8c0-e2d4-4075-8ab6-eb5bf4385fbc" name="Default" comment="">
+    <list default="true" id="3e54b8c0-e2d4-4075-8ab6-eb5bf4385fbc" name="Default" comment="Creado interprete de para ordenes de guardador(interpretar_ordenes(orden, valor)). Manejo de ordenes previo movido a GuardadorBase.interpretar_ordenes()">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Administrador.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Administrador.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/guardadores/base.py" afterPath="$PROJECT_DIR$/guardadores/base.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/guardadores/mp3.py" afterPath="$PROJECT_DIR$/guardadores/mp3.py" />
@@ -74,9 +75,7 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
-                <element signature="e#150#3354#0" expanded="false" />
-                <element signature="e#173#2258#0" expanded="false" />
-                <element signature="e#2303#3354#0" expanded="false" />
+                <element signature="e#1786#2837#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -86,44 +85,47 @@
         <entry file="file://$PROJECT_DIR$/guardadores/wav.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="youtube.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="youtube.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/guardadores/youtube.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <element signature="e#266#2382#0" expanded="false" />
-                <element signature="e#305#541#0" expanded="false" />
-                <element signature="e#570#2271#0" expanded="false" />
-                <element signature="e#2305#2321#0" expanded="false" />
-                <element signature="e#2362#2382#0" expanded="false" />
-                <element signature="e#4611#5100#0" expanded="false" />
-                <element signature="e#7637#8535#0" expanded="false" />
-                <element signature="e#8569#8625#0" expanded="false" />
+                <element signature="e#250#2366#0" expanded="false" />
+                <element signature="e#289#525#0" expanded="false" />
+                <element signature="e#554#2255#0" expanded="false" />
+                <element signature="e#2289#2305#0" expanded="false" />
+                <element signature="e#2346#2366#0" expanded="false" />
+                <element signature="e#3969#4133#0" expanded="false" />
+                <element signature="e#4178#4667#0" expanded="false" />
+                <element signature="e#6464#6662#0" expanded="false" />
+                <element signature="e#6707#7605#0" expanded="false" />
+                <element signature="e#7639#7695#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="base.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/guardadores/base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.46733668">
+              <caret line="78" column="13" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
               <folding>
-                <element signature="e#715#2469#0" expanded="false" />
-                <element signature="e#2514#3476#0" expanded="false" />
-                <element signature="e#2514#3463#1" expanded="false" />
-                <element signature="e#3524#3743#0" expanded="false" />
-                <element signature="e#3788#4290#0" expanded="false" />
-                <element signature="e#4360#4396#0" expanded="false" />
+                <element signature="e#160#687#0" expanded="false" />
+                <element signature="e#716#2470#0" expanded="false" />
+                <element signature="e#3194#4156#0" expanded="false" />
+                <element signature="e#3194#4143#1" expanded="false" />
+                <element signature="e#4204#4423#0" expanded="false" />
+                <element signature="e#4468#4970#0" expanded="false" />
+                <element signature="e#5040#5076#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -211,10 +213,10 @@
         <option value="$PROJECT_DIR$/grabadorui.py" />
         <option value="$PROJECT_DIR$/grabador.py" />
         <option value="$PROJECT_DIR$/lame.py" />
-        <option value="$PROJECT_DIR$/guardadores/base.py" />
         <option value="$PROJECT_DIR$/guardadores/wav.py" />
         <option value="$PROJECT_DIR$/guardadores/mp3.py" />
         <option value="$PROJECT_DIR$/guardadores/youtube.py" />
+        <option value="$PROJECT_DIR$/guardadores/base.py" />
       </list>
     </option>
   </component>
@@ -618,7 +620,13 @@
       <option name="project" value="LOCAL" />
       <updated>1468722664568</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Archivo de sonido creado cuando se necesita para todos los guardadores. Implementado desde GuardadorBase">
+      <created>1468725429473</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1468725429473</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -635,7 +643,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16910689" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.4941435" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32913387" sideWeight="0.4941435" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.6918009" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4535433" sideWeight="0.3081991" order="5" side_tool="false" content_ui="tabs" />
@@ -673,7 +681,9 @@
     <MESSAGE value="Envio de titulo de tab por servidor TCP agregado. UTF-8 Funcional." />
     <MESSAGE value="Integracion de cliente TCP con el grabador." />
     <MESSAGE value="Archivo de sonido creado cuando se necesita solo para el guardador MP3 youtube (No mas archivos creados al inicio fantasmas :D)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Archivo de sonido creado cuando se necesita solo para el guardador MP3 youtube (No mas archivos creados al inicio fantasmas :D)." />
+    <MESSAGE value="Archivo de sonido creado cuando se necesita para todos los guardadores. Implementado desde GuardadorBase" />
+    <MESSAGE value="Creado interprete de para ordenes de guardador(interpretar_ordenes(orden, valor)). Manejo de ordenes previo movido a GuardadorBase.interpretar_ordenes()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creado interprete de para ordenes de guardador(interpretar_ordenes(orden, valor)). Manejo de ordenes previo movido a GuardadorBase.interpretar_ordenes()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -702,7 +712,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="59" />
+      <option name="time" value="60" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1250,38 +1260,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/guardadores/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-          <folding>
-            <element signature="e#715#2469#0" expanded="false" />
-            <element signature="e#2514#3476#0" expanded="false" />
-            <element signature="e#2514#3463#1" expanded="false" />
-            <element signature="e#3524#3743#0" expanded="false" />
-            <element signature="e#3788#4290#0" expanded="false" />
-            <element signature="e#4360#4396#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/guardadores/wav.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/guardadores/mp3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#150#3354#0" expanded="false" />
-            <element signature="e#173#2258#0" expanded="false" />
-            <element signature="e#2303#3354#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1301,20 +1284,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/guardadores/mp3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="e#1786#2837#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/guardadores/youtube.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#266#2382#0" expanded="false" />
-            <element signature="e#305#541#0" expanded="false" />
-            <element signature="e#570#2271#0" expanded="false" />
-            <element signature="e#2305#2321#0" expanded="false" />
-            <element signature="e#2362#2382#0" expanded="false" />
-            <element signature="e#4611#5100#0" expanded="false" />
-            <element signature="e#7637#8535#0" expanded="false" />
-            <element signature="e#8569#8625#0" expanded="false" />
+            <element signature="e#250#2366#0" expanded="false" />
+            <element signature="e#289#525#0" expanded="false" />
+            <element signature="e#554#2255#0" expanded="false" />
+            <element signature="e#2289#2305#0" expanded="false" />
+            <element signature="e#2346#2366#0" expanded="false" />
+            <element signature="e#3969#4133#0" expanded="false" />
+            <element signature="e#4178#4667#0" expanded="false" />
+            <element signature="e#6464#6662#0" expanded="false" />
+            <element signature="e#6707#7605#0" expanded="false" />
+            <element signature="e#7639#7695#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/guardadores/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46733668">
+          <caret line="78" column="13" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
+          <folding>
+            <element signature="e#160#687#0" expanded="false" />
+            <element signature="e#716#2470#0" expanded="false" />
+            <element signature="e#3194#4156#0" expanded="false" />
+            <element signature="e#3194#4143#1" expanded="false" />
+            <element signature="e#4204#4423#0" expanded="false" />
+            <element signature="e#4468#4970#0" expanded="false" />
+            <element signature="e#5040#5076#0" expanded="false" />
           </folding>
         </state>
       </provider>

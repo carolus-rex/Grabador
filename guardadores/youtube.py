@@ -4,8 +4,6 @@ import wave
 from socket import AF_INET, socket, SOCK_STREAM
 from threading import Thread
 
-import pyaudio
-
 __author__ = "Daniel"
 
 from time import sleep
@@ -102,24 +100,18 @@ class GuardadorWAV(GuardadorBase):
                         sound_pcm = b""
                 else:
                     for key, value in data.items():
-                        if key == "rate":
-                            self.rate = value
-                        elif key == "channels":
-                            self.channels = value
-                        elif key == "format_in_bits":
-                            self.formatM = value
-                        elif key == "cerrar":
-                            # Crea un nuevo archivo y guarda todo lo hecho hasta ahora
-                            pass
-                        elif key == "titulo":
-                            self.archivo_name = self.PATH + value + ".wav"
-                        else:
-                            print("Data tipo %s con valor %s no reconocida" %(key, value))
+                        self.interpretar_orden(key, value)
                     sound_chunks = 0
                     sound_pcm = b""
                     self.archivo.close()
             else:
                 sleep((1/self.grabador.rate) * self.grabador.CHUNK)
+
+    def interpretar_orden(self, orden, valor):
+        if orden == "titulo":
+            self.archivo_name = self.PATH + valor + ".wav"
+        else:
+            super(GuardadorWAV, self).interpretar_orden(orden, valor)
 
     def crear_nuevo_archivo(self):
         print("Crear nuevo archivo?")
@@ -166,21 +158,7 @@ class GuardadorMP3(GuardadorBase):
                         sound_pcm = b""
                 else:
                     for key, value in data.items():
-                        if key == "rate":
-                            self.rate = value
-                        elif key == "channels":
-                            self.channels = value
-                        elif key == "format_in_bits":
-                            self.formatM = value
-                        elif key == "cerrar":
-                            print("Orden de cerrar el archivo")
-                            # Crea un nuevo archivo y guarda todo lo hecho hasta ahora
-                            pass
-                        elif key == "titulo":
-                            self.archivo_name = self.PATH + value + ".mp3"
-                            print("Nuevo titulo")
-                        else:
-                            print("Data tipo %s con valor %s no reconocida" %(key, value))
+                        self.interpretar_orden(key, value)
                     sound_chunks = 0
                     sound_pcm = b""
                     if self.archivo is not None: # Nos aeguramos que el archivo no sea None
@@ -188,6 +166,13 @@ class GuardadorMP3(GuardadorBase):
                         print("Archivo cerrado")
             else:
                 sleep((1/self.grabador.rate) * self.grabador.CHUNK)
+
+    def interpretar_orden(self, orden, valor):
+        if orden == "titulo":
+            self.archivo_name = self.PATH + valor + ".mp3"
+            print("Nuevo titulo")
+        else:
+            super(GuardadorMP3, self).interpretar_orden(orden, valor)
 
     def crear_nuevo_archivo(self):
         print("Crear nuevo archivo?")

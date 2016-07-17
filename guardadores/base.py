@@ -5,6 +5,7 @@ import pyaudio
 
 __author__ = "Daniel"
 
+
 class GuardadorBase(Thread):
     def __init__(self, grabador):
         self.archivo_min_duration = 60
@@ -61,6 +62,22 @@ class GuardadorBase(Thread):
                     self.crear_nuevo_archivo()
             else:
                 sleep((1/self.grabador.rate) * self.grabador.CHUNK)"""
+
+    def interpretar_orden(self, orden, valor):
+        # Si en algun momento se me ocurriese hacer un guardador con acciones
+        # especificas, tendria que hacer que ejecute funciones en lugar de que
+        # solamente modifique valores
+        if orden == "rate":
+            self.rate = valor
+        elif orden == "channels":
+            self.channels = valor
+        elif orden == "format_in_bits":
+            self.formatM = valor
+        elif orden == "cerrar":
+            # Crea un nuevo archivo y guarda lo hecho hasta ahora
+            print("Orden de cerrar el archivo")
+        else:
+            print("Data tipo %s con valor %s no reconocida" %(orden, valor))
 
     def crear_nuevo_archivo(self):
         """print("Crear nuevo archivo?")
