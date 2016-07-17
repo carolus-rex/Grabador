@@ -54,6 +54,7 @@ class GrabadorUi(BoxLayout):
         self.ids.outputs.values = self.grabador.get_outputs()
         self._guardador = None
         self._tab_selected = False
+        self.grabador_estado_previo = None
 
     def search_device(self, name):
         index = 0
@@ -85,8 +86,8 @@ class GrabadorUi(BoxLayout):
             self.ids.grabartoggle.text = "Grabar"
             self.ids.pausartoggle.state = "normal"
             self.grabador.guardar = False
-            #self.grabador.cambios["cerrar"] = True        #Puedo cerrar el archivo asi
-            self.grabador.guardador.crear_nuevo_archivo()  #Tambien puedo hacerlo asi, no me convence mucho
+            self.grabador.cambios["cerrar"] = True        #Puedo cerrar el archivo asi
+            #self.grabador.guardador.crear_nuevo_archivo()  #Tambien puedo hacerlo asi, no me convence mucho
         elif state == "down": # Empieza a grabar
             self.ids.grabartoggle.text = "Detener"
             self.grabador.guardar = True
@@ -112,6 +113,7 @@ class GrabadorUi(BoxLayout):
             YoutubePopup(grabadorui=self).open()
 
     def crear_guardador_youtube(self, wid, *args):
+        self.grabador_estado_previo = self.grabador.guardar
         self.grabador.guardar = False
         guardador = GuardadorMP3(self.grabador)
         while True:
@@ -153,7 +155,8 @@ class GrabadorUi(BoxLayout):
         guardador.youtube.set_tab(id)
         #print("El grabador es: ", guardador.grabador)
         #sleep(5)
-        self.grabador.guardar = True
+        self.grabador.guardar = self.grabador_estado_previo
+        self.grabador_estado_previo = None
         #TODO: Fix the race condition. se produce porque el nombre y la autorizacion para que el grabador guarde ocurren casi al mismo tiempo
         self._tab_selected = True
         wid.dismiss()

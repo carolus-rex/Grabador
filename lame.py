@@ -252,6 +252,7 @@ class FileLikeLame(Lame):
         #op
         ofile = builtins.open(name, mode)
         self.started = False
+        self.closed = False
         super(FileLikeLame, self).__init__(ofile=ofile)
 
     def _recalcular_chunk_size(self):
@@ -293,6 +294,7 @@ class FileLikeLame(Lame):
     def close(self):
         print(self.finish(), "codigo return lame")
         self.ofile.close()
+        self.closed = True
 
 
 if __name__ == "__main__":

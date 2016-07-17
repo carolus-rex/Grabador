@@ -4,6 +4,8 @@ import wave
 from socket import AF_INET, socket, SOCK_STREAM
 from threading import Thread
 
+import pyaudio
+
 __author__ = "Daniel"
 
 from time import sleep
@@ -135,7 +137,20 @@ class GuardadorMP3(GuardadorBase):
     def __init__(self, grabador):
         self.youtube = ClienteYoutube(self)
         self.PATH = "C:\\Users\\Administrador\\grabado\\"
-        super(GuardadorMP3, self).__init__(grabador)
+        self.archivo_min_duration = 60
+        self.grabador = grabador
+        self.CHUNK = self.grabador.CHUNK
+        self.formatM = pyaudio.paInt16 if 1 <= self.grabador.format_in_bits<= 16 else pyaudio.paInt32
+        self.channels = self.grabador.channels
+        self.rate = self.grabador.rate
+        self.archivo = None
+        self.archivo_name = None
+        #self.crear_nuevo_archivo()
+        self.tamaño_chunk_ideal = 8192
+        self.ruido_ambiente = 0.00028
+        self._silencio = True
+        Thread.__init__(self)
+        self.start()
 
     def run(self):
         print("GuardadorMp3 loop")
@@ -153,6 +168,9 @@ class GuardadorMP3(GuardadorBase):
                         #sound = sound_pcm
                         #print(rms)
                         if rms > self.ruido_ambiente:
+                            if self.archivo is None or self.archivo.closed:
+                                print("Crear nuevo archivo por archivo cerrado o None")
+                                self.crear_nuevo_archivo()
                             self.archivo.writeframes(sound)
                         sound_chunks = 0
                         sound_pcm = b""
@@ -165,6 +183,7 @@ class GuardadorMP3(GuardadorBase):
                         elif key == "format_in_bits":
                             self.formatM = value
                         elif key == "cerrar":
+                            print("Orden de cerrar el archivo")
                             # Crea un nuevo archivo y guarda todo lo hecho hasta ahora
                             pass
                         elif key == "titulo":
@@ -174,16 +193,24 @@ class GuardadorMP3(GuardadorBase):
                             print("Data tipo %s con valor %s no reconocida" %(key, value))
                     sound_chunks = 0
                     sound_pcm = b""
-                    self.crear_nuevo_archivo()
+                    if self.archivo is not None: # Nos aeguramos que el archivo no sea None
+                        self.archivo.close()
+                        print("Archivo cerrado")
             else:
                 sleep((1/self.grabador.rate) * self.grabador.CHUNK)
 
     def crear_nuevo_archivo(self):
         print("Crear nuevo archivo?")
-        if self.archivo_name is None and self.archivo is None:
-            return
-        elif self.archivo_name is not None and self.archivo is not None:
-            self.archivo.close()
+        # if self.archivo_name is None and self.archivo is None:
+        #     return
+        # elif self.archivo_name is not None and self.archivo is not None:
+        #     self.archivo.close()
+        """En teoria las lineas de arriba ya no son necesarias en ningun caso
+        porque externamente cierro el archivo y como ademas, en el caso especifico
+        de los grabadores youtube, la grabación no empieza hasta que haya llegado
+        el nombre del archivo no existen problemas de que el nombre sea None"""
+
+        assert self.archivo_name is not None, "Es None, no lo puedo creer ºº"
         self.archivo = lame.open(self.archivo_name,"wb")
 
         print(self.archivo_name)
