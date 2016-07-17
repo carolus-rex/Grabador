@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e54b8c0-e2d4-4075-8ab6-eb5bf4385fbc" name="Default" comment="">
+    <list default="true" id="3e54b8c0-e2d4-4075-8ab6-eb5bf4385fbc" name="Default" comment="Listado de tabs en la UI en un thread diferente.(Youtube Popup ya no se bloquea)">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grabadorui.kv" afterPath="$PROJECT_DIR$/grabadorui.kv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grabadorui.py" afterPath="$PROJECT_DIR$/grabadorui.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/guardadores/youtube.py" afterPath="$PROJECT_DIR$/guardadores/youtube.py" />
     </list>
@@ -183,7 +182,7 @@
         <entry file="file://$PROJECT_DIR$/grabador.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="146" column="0" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
+              <caret line="141" column="17" selection-start-line="141" selection-start-column="17" selection-end-line="141" selection-end-column="17" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
                 <element signature="e#763#1114#0" expanded="false" />
@@ -204,64 +203,55 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="grabadorui.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="grabadorui.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grabadorui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23753665">
-              <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+            <state vertical-scroll-proportion="-2.7931035">
+              <caret line="111" column="28" selection-start-line="111" selection-start-column="28" selection-end-line="111" selection-end-column="28" />
               <folding>
-                <element signature="e#716#929#0" expanded="false" />
-                <element signature="e#801#929#0" expanded="false" />
-                <element signature="e#1729#2030#0" expanded="false" />
-                <element signature="e#2079#2160#0" expanded="false" />
-                <element signature="e#2210#2292#0" expanded="false" />
-                <element signature="e#3352#3496#0" expanded="false" />
-                <element signature="e#3547#3945#0" expanded="false" />
-                <element signature="e#5965#6057#0" expanded="false" />
-                <element signature="e#6113#6197#0" expanded="false" />
-                <element signature="e#6620#6664#0" expanded="false" />
-                <element signature="e#6645#6664#0" expanded="false" />
+                <element signature="e#660#689#0" expanded="false" />
+                <element signature="e#733#946#0" expanded="false" />
+                <element signature="e#818#946#0" expanded="false" />
+                <element signature="e#1020#1664#0" expanded="false" />
+                <element signature="e#1709#2010#0" expanded="false" />
+                <element signature="e#2059#2140#0" expanded="false" />
+                <element signature="e#2190#2272#0" expanded="false" />
+                <element signature="e#2323#3285#0" expanded="false" />
+                <element signature="e#3332#3476#0" expanded="false" />
+                <element signature="e#3527#3925#0" expanded="false" />
+                <element signature="e#4160#4247#0" expanded="false" />
+                <element signature="e#4335#5010#0" expanded="false" />
+                <element signature="e#5060#5265#0" expanded="false" />
+                <element signature="e#5327#6008#0" expanded="false" />
+                <element signature="e#6056#6148#0" expanded="false" />
+                <element signature="e#6204#6288#0" expanded="false" />
+                <element signature="e#6348#6455#0" expanded="false" />
+                <element signature="e#6510#6680#0" expanded="false" />
+                <element signature="e#6711#6755#0" expanded="false" />
+                <element signature="e#6736#6755#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="modalview.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Downloads/Kivy-1.9.0-py3.4-win32-x64/kivy34/kivy/uix/modalview.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lang.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Downloads/Kivy-1.9.0-py3.4-win32-x64/kivy34/kivy/lang.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1463" column="0" selection-start-line="1463" selection-start-column="0" selection-end-line="1463" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="youtube.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="youtube.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/guardadores/youtube.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.08648649">
+              <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
-                <element signature="e#2911#2927#0" expanded="false" />
-                <element signature="e#3030#5385#0" expanded="false" />
-                <element signature="e#3068#3201#0" expanded="false" />
-                <element signature="e#3230#4630#0" expanded="false" />
-                <element signature="e#4687#4851#0" expanded="false" />
-                <element signature="e#4896#5385#0" expanded="false" />
-                <element signature="e#7303#7501#0" expanded="false" />
-                <element signature="e#7546#8444#0" expanded="false" />
-                <element signature="e#8478#8534#0" expanded="false" />
+                <element signature="e#294#570#0" expanded="false" />
+                <element signature="e#599#2861#0" expanded="false" />
+                <element signature="e#2895#2911#0" expanded="false" />
+                <element signature="e#2952#2972#0" expanded="false" />
+                <element signature="e#3006#3025#0" expanded="false" />
+                <element signature="e#3284#4684#0" expanded="false" />
+                <element signature="e#4741#4905#0" expanded="false" />
+                <element signature="e#4950#5439#0" expanded="false" />
+                <element signature="e#5541#5682#0" expanded="false" />
+                <element signature="e#5711#7292#0" expanded="false" />
+                <element signature="e#7349#7547#0" expanded="false" />
+                <element signature="e#7592#8490#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -315,8 +305,8 @@
         <option value="$PROJECT_DIR$/guardadores/wav.py" />
         <option value="$PROJECT_DIR$/guardadores/base.py" />
         <option value="$PROJECT_DIR$/grabador.py" />
-        <option value="$PROJECT_DIR$/guardadores/youtube.py" />
         <option value="$PROJECT_DIR$/grabadorui.kv" />
+        <option value="$PROJECT_DIR$/guardadores/youtube.py" />
         <option value="$PROJECT_DIR$/grabadorui.py" />
       </list>
     </option>
@@ -739,7 +729,13 @@
       <option name="project" value="LOCAL" />
       <updated>1468743882302</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Listado de tabs en la UI en un thread diferente.(Youtube Popup ya no se bloquea)">
+      <created>1468787209445</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1468787209445</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -797,7 +793,8 @@
     <MESSAGE value="Archivo de sonido creado cuando se necesita para todos los guardadores. Implementado desde GuardadorBase" />
     <MESSAGE value="Creado interprete de para ordenes de guardador(interpretar_ordenes(orden, valor)). Manejo de ordenes previo movido a GuardadorBase.interpretar_ordenes()" />
     <MESSAGE value="Implementado metodos para cambio de Guardador" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementado metodos para cambio de Guardador" />
+    <MESSAGE value="Listado de tabs en la UI en un thread diferente.(Youtube Popup ya no se bloquea)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Listado de tabs en la UI en un thread diferente.(Youtube Popup ya no se bloquea)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1218,54 +1215,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/guardadores/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
-          <folding>
-            <element signature="e#1078#2832#0" expanded="false" />
-            <element signature="e#2889#3553#0" expanded="false" />
-            <element signature="e#3598#4560#0" expanded="false" />
-            <element signature="e#3598#4547#1" expanded="false" />
-            <element signature="e#4608#4827#0" expanded="false" />
-            <element signature="e#4872#5374#0" expanded="false" />
-            <element signature="e#5444#5480#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grabador.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="146" column="0" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-            <element signature="e#763#1114#0" expanded="false" />
-            <element signature="e#1151#1503#0" expanded="false" />
-            <element signature="e#3626#4948#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/guardadores/youtube.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#2911#2927#0" expanded="false" />
-            <element signature="e#3030#5385#0" expanded="false" />
-            <element signature="e#3068#3201#0" expanded="false" />
-            <element signature="e#3230#4630#0" expanded="false" />
-            <element signature="e#4687#4851#0" expanded="false" />
-            <element signature="e#4896#5385#0" expanded="false" />
-            <element signature="e#7303#7501#0" expanded="false" />
-            <element signature="e#7546#8444#0" expanded="false" />
-            <element signature="e#8478#8534#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/Kivy-1.9.0-py3.4-win32-x64/kivy34/kivy/lang.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1423,22 +1372,81 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/guardadores/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+          <folding>
+            <element signature="e#1078#2832#0" expanded="false" />
+            <element signature="e#2889#3553#0" expanded="false" />
+            <element signature="e#3598#4560#0" expanded="false" />
+            <element signature="e#3598#4547#1" expanded="false" />
+            <element signature="e#4608#4827#0" expanded="false" />
+            <element signature="e#4872#5374#0" expanded="false" />
+            <element signature="e#5444#5480#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grabador.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="141" column="17" selection-start-line="141" selection-start-column="17" selection-end-line="141" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#763#1114#0" expanded="false" />
+            <element signature="e#1151#1503#0" expanded="false" />
+            <element signature="e#3626#4948#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/grabadorui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23753665">
-          <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+        <state vertical-scroll-proportion="-2.7931035">
+          <caret line="111" column="28" selection-start-line="111" selection-start-column="28" selection-end-line="111" selection-end-column="28" />
           <folding>
-            <element signature="e#716#929#0" expanded="false" />
-            <element signature="e#801#929#0" expanded="false" />
-            <element signature="e#1729#2030#0" expanded="false" />
-            <element signature="e#2079#2160#0" expanded="false" />
-            <element signature="e#2210#2292#0" expanded="false" />
-            <element signature="e#3352#3496#0" expanded="false" />
-            <element signature="e#3547#3945#0" expanded="false" />
-            <element signature="e#5965#6057#0" expanded="false" />
-            <element signature="e#6113#6197#0" expanded="false" />
-            <element signature="e#6620#6664#0" expanded="false" />
-            <element signature="e#6645#6664#0" expanded="false" />
+            <element signature="e#660#689#0" expanded="false" />
+            <element signature="e#733#946#0" expanded="false" />
+            <element signature="e#818#946#0" expanded="false" />
+            <element signature="e#1020#1664#0" expanded="false" />
+            <element signature="e#1709#2010#0" expanded="false" />
+            <element signature="e#2059#2140#0" expanded="false" />
+            <element signature="e#2190#2272#0" expanded="false" />
+            <element signature="e#2323#3285#0" expanded="false" />
+            <element signature="e#3332#3476#0" expanded="false" />
+            <element signature="e#3527#3925#0" expanded="false" />
+            <element signature="e#4160#4247#0" expanded="false" />
+            <element signature="e#4335#5010#0" expanded="false" />
+            <element signature="e#5060#5265#0" expanded="false" />
+            <element signature="e#5327#6008#0" expanded="false" />
+            <element signature="e#6056#6148#0" expanded="false" />
+            <element signature="e#6204#6288#0" expanded="false" />
+            <element signature="e#6348#6455#0" expanded="false" />
+            <element signature="e#6510#6680#0" expanded="false" />
+            <element signature="e#6711#6755#0" expanded="false" />
+            <element signature="e#6736#6755#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/guardadores/youtube.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08648649">
+          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+          <folding>
+            <element signature="e#294#570#0" expanded="false" />
+            <element signature="e#599#2861#0" expanded="false" />
+            <element signature="e#2895#2911#0" expanded="false" />
+            <element signature="e#2952#2972#0" expanded="false" />
+            <element signature="e#3006#3025#0" expanded="false" />
+            <element signature="e#3284#4684#0" expanded="false" />
+            <element signature="e#4741#4905#0" expanded="false" />
+            <element signature="e#4950#5439#0" expanded="false" />
+            <element signature="e#5541#5682#0" expanded="false" />
+            <element signature="e#5711#7292#0" expanded="false" />
+            <element signature="e#7349#7547#0" expanded="false" />
+            <element signature="e#7592#8490#0" expanded="false" />
           </folding>
         </state>
       </provider>

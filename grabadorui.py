@@ -7,7 +7,7 @@ from kivy.uix.togglebutton import ToggleButton
 from pywinvolume.volume_controller import KeyVolumeController
 
 from grabador import Grabador
-from guardadores.youtube import GuardadorMP3
+from guardadores.youtube import GuardadorMP3, ClienteYoutube
 from widgetsbasicos import *
 
 kivy.require("1.9.0")
@@ -27,6 +27,7 @@ SPEAKERS_FRIENDLY_NAME = "Altavoz/Auricular (Realtek High Definition Audio)"
 
 class YoutubePopup(Popup):
     grabadorui = ObjectProperty()
+
 
 class AskToggleButton(ToggleButton):
     check_premission = ObjectProperty(None)
@@ -52,9 +53,8 @@ class GrabadorUi(BoxLayout):
 
         self.ids.outputs.text = self.grabador.p.get_default_output_device_info()["name"]
         self.ids.outputs.values = self.grabador.get_outputs()
-        self._guardador = None
+        self._cliente_youtube = None
         self._tab_selected = False
-        self.grabador_estado_previo = None
 
     def search_device(self, name):
         index = 0
@@ -109,19 +109,16 @@ class GrabadorUi(BoxLayout):
             self.grabador.guardar = False
 
     def toggle_youtube(self, wid, state):
+        #TODO: Opcion para desactivar el modo youtube
         if state == "down":
             YoutubePopup(grabadorui=self).open()
 
     def crear_guardador_youtube(self, wid, *args):
-        self.grabador_estado_previo = self.grabador.guardar
-        self.grabador.guardar = False
-        guardador = GuardadorMP3(partial(self.on_youtube_lista__tabs_llega, wid),
-                                 self.grabador)
+        self._cliente_youtube = ClienteYoutube(partial(self.on_youtube_lista__tabs_llega, wid))
 
     def on_youtube_lista__tabs_llega(self, wid, cliente_youtube, lista_tabs):
         print("Llego la lista de tabs")
         data = lista_tabs
-        guardador = cliente_youtube.guardador
         if len(data) == 1:
             id = tuple(data.keys())[0]
             print("solo tengo una data, voy a enviar esta id : ", id)
@@ -129,28 +126,32 @@ class GrabadorUi(BoxLayout):
             #Solo tengo una opcin posible, asi que la elijo automaticamente sin preguntarle al usuario
             self.elegir_tab(wid,
                             id,
-                            guardador)
+                            cliente_youtube)
             return
         for id, title in data:
-            button = Button(text=title,on_press=partial(self.elegir_tab, wid, id, guardador))
+            button = Button(text=title,on_press=partial(self.elegir_tab, wid, id, cliente_youtube))
             self.ids.vistascroll.add_cuadro(button)
 
     def quitar_popup(self, wid, *args):
         if not self._tab_selected:
-            self._guardador.terminar()
+            self._cliente_youtube.terminar()
+            self.ids.youtubetoggle.state = "normal"
         self._tab_selected = False
         #wid.ids.vista_scroll.borrar_cuadros()
 
-    def elegir_tab(self, wid, id, guardador):
+    def elegir_tab(self, wid, id, cliente_youtube):
+        # TODO: fix the race condition
+        # GuardadorMP3 y cliente_youtube no entran en race condition porque set_tab ocurre
+        # depues de asignarse mutuamente.
+        # Grabador y GuardadorMp3 si pueden entrar en race condition porque puede que el nombre
+        # del archivo sea seteado por cliente_youtube antes de que el guardador tenga grabador
         print("Tab elegida")
+        guardador = GuardadorMP3(cliente_youtube)
+        cliente_youtube.guardador = guardador
         self.grabador.cambiar_guardador(guardador)
         print("Tab id a elegir: ", id)
         guardador.youtube.set_tab(id)
-        #print("El grabador es: ", guardador.grabador)
         #sleep(5)
-        self.grabador.guardar = self.grabador_estado_previo
-        self.grabador_estado_previo = None
-        #TODO: Fix the race condition. se produce porque el nombre y la autorizacion para que el grabador guarde ocurren casi al mismo tiempo
         self._tab_selected = True
         wid.dismiss()
 

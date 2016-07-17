@@ -13,9 +13,9 @@ from guardadores.base import GuardadorBase
 
 
 class ClienteYoutube(Thread):
-    def __init__(self, guardador, on_lista_llega):
+    def __init__(self, on_lista_llega):
         self.on_lista_llega = on_lista_llega
-        self.guardador = guardador
+        self.guardador = None
         self.client = socket(AF_INET, SOCK_STREAM)
         self.add = ("127.0.0.1", 9000)
         self.tabs = None
@@ -78,10 +78,13 @@ class ClienteYoutube(Thread):
     def set_tab(self, tab_id):
         self.tab_id = tab_id
 
+    def terminar(self):
+        self.client.close()
+
 
 class GuardadorWAV(GuardadorBase):
-    def __init__(self, grabador):
-        self.youtube = ClienteYoutube(self)
+    def __init__(self, cliente_youtube, grabador=None):
+        self.youtube = cliente_youtube
         self.PATH = "%HOMEPATH%\\grabador\\"
         super(GuardadorWAV, self).__init__(grabador)
 
@@ -140,8 +143,8 @@ class GuardadorWAV(GuardadorBase):
 
 
 class GuardadorMP3(GuardadorBase):
-    def __init__(self, on_lista, grabador=None):
-        self.youtube = ClienteYoutube(self, on_lista)
+    def __init__(self, cliente_youtube, grabador=None):
+        self.youtube = cliente_youtube
         self.PATH = "C:\\Users\\Administrador\\grabado\\"
         super(GuardadorMP3, self).__init__(grabador)
 
@@ -207,7 +210,3 @@ class GuardadorMP3(GuardadorBase):
         self.archivo.setframerate(self.rate)
         self.archivo.setsampwidth(self.grabador.p.get_sample_size(self.formatM) * 8)
         self.archivo.setnchannels(self.channels)
-
-    def terminar(self):
-        self.grabador = None
-        self.youtube.client.close()
