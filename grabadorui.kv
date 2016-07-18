@@ -2,12 +2,13 @@
     grabadorui:
     on_open: self.grabadorui.crear_guardador_youtube(*args)
     on_dismiss: self.grabadorui.quitar_popup(*args)
-    width: 200
-    height: 200
+    size_hint: None, None
+    size: 500, 500
+    title:"Elige la pestaña"
     BoxLayout:
         orientation: "vertical"
-        Label:
-            text:"Elige la pestaña"
+        Etiqueta:
+            color:
         VistaScroll:
             id: vista_scroll
 

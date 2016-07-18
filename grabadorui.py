@@ -7,6 +7,7 @@ from kivy.uix.togglebutton import ToggleButton
 from pywinvolume.volume_controller import KeyVolumeController
 
 from grabador import Grabador
+from guardadores.mp3 import Guardador
 from guardadores.youtube import GuardadorMP3, ClienteYoutube
 from widgetsbasicos import *
 
@@ -128,9 +129,12 @@ class GrabadorUi(BoxLayout):
                             id,
                             cliente_youtube)
             return
-        for id, title in data:
-            button = Button(text=title,on_press=partial(self.elegir_tab, wid, id, cliente_youtube))
-            self.ids.vistascroll.add_cuadro(button)
+        for id, title in data.items():
+            button = Button(text=title,
+                            on_press=partial(self.elegir_tab, wid, id, cliente_youtube),
+                            size_hint_y=None,
+                            height=30)
+            wid.ids.vista_scroll.add_cuadro(button)
 
     def quitar_popup(self, wid, *args):
         if not self._tab_selected:
@@ -139,7 +143,7 @@ class GrabadorUi(BoxLayout):
         self._tab_selected = False
         #wid.ids.vista_scroll.borrar_cuadros()
 
-    def elegir_tab(self, wid, id, cliente_youtube):
+    def elegir_tab(self, wid, id, cliente_youtube, *args):
         # TODO: fix the race condition
         # GuardadorMP3 y cliente_youtube no entran en race condition porque set_tab ocurre
         # depues de asignarse mutuamente.
