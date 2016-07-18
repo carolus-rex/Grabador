@@ -4,9 +4,7 @@
     <list default="true" id="3e54b8c0-e2d4-4075-8ab6-eb5bf4385fbc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Administrador.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Administrador.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grabadorui.kv" afterPath="$PROJECT_DIR$/grabadorui.kv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grabadorui.py" afterPath="$PROJECT_DIR$/grabadorui.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/widgetsbasicos.kv" afterPath="$PROJECT_DIR$/widgetsbasicos.kv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/firefox_addon/index.js" afterPath="$PROJECT_DIR$/firefox_addon/index.js" />
     </list>
     <ignored path="Transceptor Sonido.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="grabadorui.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="grabadorui.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grabadorui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8416422">
-              <caret line="151" column="28" selection-start-line="151" selection-start-column="28" selection-end-line="151" selection-end-column="28" />
+            <state vertical-scroll-proportion="-9.896552">
+              <caret line="161" column="16" selection-start-line="161" selection-start-column="16" selection-end-line="161" selection-end-column="16" />
               <folding>
                 <element signature="e#698#727#0" expanded="false" />
                 <element signature="e#771#984#0" expanded="false" />
@@ -54,23 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mp3.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/guardadores/mp3.py">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/firefox_addon/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding>
-                <element signature="e#1882#2933#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="grabadorui.kv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grabadorui.kv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.65675676">
+              <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -80,7 +66,7 @@
         <entry file="file://$PROJECT_DIR$/guardadores/youtube.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding>
                 <element signature="e#294#570#0" expanded="false" />
                 <element signature="e#2895#2911#0" expanded="false" />
@@ -137,7 +123,6 @@
         <option value="$PROJECT_DIR$/firefox_addon/indexl.js" />
         <option value="$PROJECT_DIR$/firefox_addon/cliente_tcp.js" />
         <option value="$PROJECT_DIR$/guardadores/yotube.py" />
-        <option value="$PROJECT_DIR$/firefox_addon/index.js" />
         <option value="$PROJECT_DIR$/guardadores/__init__.py" />
         <option value="$USER_HOME$/Downloads/Kivy-1.9.0-py3.4-win32-x64/Python34/Lib/threading.py" />
         <option value="$PROJECT_DIR$/lame.py" />
@@ -150,6 +135,7 @@
         <option value="$PROJECT_DIR$/widgetsbasicos.kv" />
         <option value="$PROJECT_DIR$/grabadorui.kv" />
         <option value="$PROJECT_DIR$/grabadorui.py" />
+        <option value="$PROJECT_DIR$/firefox_addon/index.js" />
       </list>
     </option>
   </component>
@@ -597,7 +583,13 @@
       <option name="project" value="LOCAL" />
       <updated>1468790948948</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Arreglado dipslay de listado de tabs">
+      <created>1468804728420</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1468804728420</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -610,7 +602,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16910689" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -657,7 +649,8 @@
     <MESSAGE value="Implementado metodos para cambio de Guardador" />
     <MESSAGE value="Listado de tabs en la UI en un thread diferente.(Youtube Popup ya no se bloquea)" />
     <MESSAGE value="GrabadorMP3 youtube necesita un ClienteYoutube previamente creado. Ya no crea el suyo propio cuando inicializa." />
-    <option name="LAST_COMMIT_MESSAGE" value="GrabadorMP3 youtube necesita un ClienteYoutube previamente creado. Ya no crea el suyo propio cuando inicializa." />
+    <MESSAGE value="Arreglado dipslay de listado de tabs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arreglado dipslay de listado de tabs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -686,18 +679,11 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="75" />
+      <option name="time" value="77" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Downloads/Kivy-1.9.0-py3.4-win32-x64/kivy34/kivy/uix/button.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.83125">
-          <caret line="52" column="6" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/Kivy-1.9.0-py3.4-win32-x64/kivy34/kivy/uix/togglebutton.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.5172415">
@@ -807,6 +793,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07648725">
           <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -828,13 +815,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/firefox_addon/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="2" selection-start-line="42" selection-start-column="2" selection-end-line="42" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -1179,26 +1159,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/guardadores/youtube.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding>
-            <element signature="e#294#570#0" expanded="false" />
-            <element signature="e#2895#2911#0" expanded="false" />
-            <element signature="e#2952#2972#0" expanded="false" />
-            <element signature="e#3006#3025#0" expanded="false" />
-            <element signature="e#3284#4684#0" expanded="false" />
-            <element signature="e#4741#4905#0" expanded="false" />
-            <element signature="e#4950#5439#0" expanded="false" />
-            <element signature="e#5541#5682#0" expanded="false" />
-            <element signature="e#5711#7292#0" expanded="false" />
-            <element signature="e#7349#7547#0" expanded="false" />
-            <element signature="e#7592#8490#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/Kivy-1.9.0-py3.4-win32-x64/Python34/Lib/site-packages/pyaudio.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33243242">
@@ -1334,8 +1294,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grabadorui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8416422">
-          <caret line="151" column="28" selection-start-line="151" selection-start-column="28" selection-end-line="151" selection-end-column="28" />
+        <state vertical-scroll-proportion="-9.896552">
+          <caret line="161" column="16" selection-start-line="161" selection-start-column="16" selection-end-line="161" selection-end-column="16" />
           <folding>
             <element signature="e#698#727#0" expanded="false" />
             <element signature="e#771#984#0" expanded="false" />
@@ -1354,6 +1314,34 @@
             <element signature="e#6878#6922#0" expanded="false" />
             <element signature="e#6903#6922#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/guardadores/youtube.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding>
+            <element signature="e#294#570#0" expanded="false" />
+            <element signature="e#2895#2911#0" expanded="false" />
+            <element signature="e#2952#2972#0" expanded="false" />
+            <element signature="e#3006#3025#0" expanded="false" />
+            <element signature="e#3284#4684#0" expanded="false" />
+            <element signature="e#4741#4905#0" expanded="false" />
+            <element signature="e#4950#5439#0" expanded="false" />
+            <element signature="e#5541#5682#0" expanded="false" />
+            <element signature="e#5711#7292#0" expanded="false" />
+            <element signature="e#7349#7547#0" expanded="false" />
+            <element signature="e#7592#8490#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/firefox_addon/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65675676">
+          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>

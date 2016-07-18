@@ -1,129 +1,110 @@
-/*Add-On creado para comunicar el cambio de nombre/video/titulo al grabador.ç
+/*Add-On creado para comunicar el cambio de nombre/video/titulo al grabador.
 Como funciona:
- El add-on actua como servidor TCP para comunicarse con el grabador
- El grabador solicitara la conexión a firefox. Firefox le responde con una
+ El add-on actúa como servidor TCP para comunicarse con el grabador.
+ El grabador solicitará la conexión a firefox. Firefox le responde con una
  lista de las pestañas de youtube abiertas CON REPRODUCCION ACTIVA (es decir la
- pagina de un video) con sus correspondientes ID.
+ página de un video) con sus correspondientes ID.
  El grabador responde con el ID de la pestaña de youtube elegida a monitorear.
- Firefox le responde cada vez que el titulo cambie (ES NECESARIO que le responda con
+ Firefox le responde cada vez que el título cambie (ES NECESARIO que le responda con
  el nombre de pestaña actual porque puede que haya pasado mucho tiempo
  desde que el grabador recivio los datos).*/
+
 ACTUAL_NAME = ""
 
-/*require("sdk/ui/button/action").ActionButton({
-  id: "list-tabs",
-  label: "List Tabs",
-  icon: "./icon-16.png",
-  onClick: listTabs
-});*/
-
-/*while (true)
-  console.log("hola");*/
-/*const tabs = require("sdk/tabs");
-const {viewFor} = require('sdk/view/core');
 const {modelFor} = require('sdk/model/core');
-const {getBrowserForTab, getTabForContentWindow} = require("sdk/tabs/utils");*/
 const {Ci, Cu} = require("chrome");
-/*Cu.import("resource://gre/modules/XPCOMUtils.jsm", this);*/
 Cu.import("resource://gre/modules/Timer.jsm");
 var { TextEncoder, TextDecoder } = Cu.import("resource://gre/modules/Services.jsm");
+var tabUtils = require("sdk/tabs/utils");
+var TABS = require("sdk/tabs");
+let { TCPServerSocket } = Cu.import("resource://gre/modules/Services.jsm", {});
 
+var TO_CLIENTE;
+var TIMER_ACTUAL;
+const IS_YOUTUBE_VIDEO = /^https:\/\/www\.youtube\.com\/watch.*/;
+var ENCODER = new TextEncoder("utf-8");
+var DECODER = new TextDecoder("utf-8");
 
 //Crear servidor TCP
 
-let { TCPServerSocket } = Cu.import("resource://gre/modules/Services.jsm", {});
-
 const PORT = 9000;
+var SERVER = new TCPServerSocket(PORT, {binaryType:"arraybuffer"}, -1);
 
-var server = new TCPServerSocket(PORT, {binaryType:"arraybuffer"}, -1);
-var to_cliente;
 
-server.onconnect = function (event){
-                        console.log("Conexión iniciada");
-                        to_cliente = event.socket;
-                        var encoded_data = new TextEncoder("utf-8").encode(listTabs());
-                        console.log("encoded_data: ", encoded_data);
-                        to_cliente.send(encoded_data.buffer);
-                        to_cliente.ondata = function(event){
-                                                monitorearTab(event.data);
-                                            };
+SERVER.onconnect = function (event){
+                       console.log("Conexión iniciada");
+                       TO_CLIENTE = event.socket;
+                       var encoded_data = encode(listTabs());
+                       /*console.log("encoded_data: ", encoded_data);*/
+                       TO_CLIENTE.send(encoded_data);
+                       TO_CLIENTE.ondata = function(event){
+                                               monitorearTab(event.data);
+                                           };
                    }
+
 
 function monitorearTab(tabID){
     console.log("data recivida:", tabID )
-    tabID = new TextDecoder("utf-8").decode(tabID);
-    const {modelFor} = require('sdk/model/core');
+    tabID = decode(tabID);
+    console.log("ID de pestaña: ", tabID);
 
-    console.log("ID de pestaña:", tabID);
     var tab;
-    var tabs = require("sdk/tabs");
-    var tabUtils = require("sdk/tabs/utils");
-
     tab = tabUtils.getTabForId(tabID);
     tab = modelFor(tab);
     console.log("Pestaña recuperada: ", tab);
+
     ACTUAL_NAME = tab.title.slice(0, tab.title.length - 10);
     console.log("Nombre de pestaña:", ACTUAL_NAME);
-    var encoded_data = new TextEncoder("utf-8").encode(ACTUAL_NAME);
-    to_cliente.send(encoded_data.buffer);
+    var encoded_data = encode(ACTUAL_NAME);
+    TO_CLIENTE.send(encoded_data);
+
+    clearInterval(TIMER_ACTUAL);
     setTitleTimer(tab);
 }
 
-function listTabs() {
-  var is_youtube_video = /^https:\/\/www\.youtube\.com\/watch.*/;
-  var tabs = require("sdk/tabs");
-  var jsonPestañas = {};
-  for (let tab of tabs){
+
+function listTabs(){
+    var jsonPestañas = {};
+    for (let tab of TABS){
     //console.log(tab.url);
-    if (is_youtube_video.test(tab.url)){
-      console.log("Pestaña:", tab.id, tab.title);
-      jsonPestañas[tab.id] = tab.title;
-      //setChangeTabNameListener(tab);
-      //var lowLevel = viewFor(tab);
-      //var browser = getBrowserForTab(lowLevel);
-      //browser.addProgressListener(progressListener);
+        if (IS_YOUTUBE_VIDEO.test(tab.url)){
+            console.log("Pestaña:", tab.id, tab.title);
+            jsonPestañas[tab.id] = tab.title;
+        }
     }
-  }
-  console.log("El Json es: ",jsonPestañas,JSON.stringify(jsonPestañas));
-  return JSON.stringify(jsonPestañas);
+    var pestañasString = JSON.stringify(jsonPestañas);
+    console.log("El Json es: ", pestañasString);
+    return pestañasString;
 }
 
 
 function setTitleTimer(tab){
-    let intervalID = setInterval(
-        function() {
+    TIMER_ACTUAL = setInterval(
+        function(){
             NEW_NAME = tab.title.slice(0, tab.title.length - 10);
             if (ACTUAL_NAME != NEW_NAME){
-                ACTUAL_NAME = NEW_NAME
-                console.log("Cambio de nombre a:", ACTUAL_NAME);
-                to_cliente.send((new TextEncoder("utf-8").encode(ACTUAL_NAME)).buffer);
-                console.log("Cambio enviado con exito");
+            ACTUAL_NAME = NEW_NAME
+            console.log("Cambio de nombre a:", ACTUAL_NAME);
+            TO_CLIENTE.send(encode(ACTUAL_NAME));
+            console.log("Cambio enviado con éxito");
             }
         },
-    50);
+        50);
 }
 
-/*function setChangeTabNameListener(tab){
-    tab.on("pageshow", function (){console.log("pageshowed")});
-    tab.on("activate", function() {console.log("activated")});
-    tab.on("deactivate", function() {console.log("deactivated")});
-    tab.on("close", function (){console.log("closed")});
-    tab.on("ready", function (){console.log("ready")});
-    tab.on("load", function (){console.log("load")});
-}*/
+
+function encode(string){
+    /*
+    Devuelve un BUFFER no un Uint8Array.
+    Por algún motivo TCPServerSocket.send() utiliza buffers en lugar de Uin8Arrays.
+    La documentación dice que si usa Uint8Arrays pero cuando lo pruebo no funciona.
+    Ten esto en cuenta porque puede que en futuro cambie.
+    */
+    return ENCODER.encode(string).buffer;
+    console.log("data encoded", buffer)
+}
 
 
-/*var progressListener = {
-QueryInterface: XPCOMUtils.generateQI([Ci.nsIWebProgressListener, Ci.nsISupportsWeakReference]),
-    onProgressChange: function(aProgress, aRequest, aURI, aFlags)   {
-        var highLevel= modelFor(getTabForContentWindow(aProgress.DOMWindow));
-        console.log("onLocationChange ", highLevel.title, "flags", aFlags);
-    }
-};*/
-
-/*tabs.on('open', function(newTab) {
-    var lowLevel = viewFor(newTab);
-    var browser = getBrowserForTab(lowLevel);
-    browser.addProgressListener(progressListener);
-});
-*/
+function decode(Uint8Array){
+    return DECODER.decode(string);
+}
