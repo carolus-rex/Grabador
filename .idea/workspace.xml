@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3e54b8c0-e2d4-4075-8ab6-eb5bf4385fbc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grabador.py" afterPath="$PROJECT_DIR$/grabador.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/guardadores/youtube.py" afterPath="$PROJECT_DIR$/guardadores/youtube.py" />
     </list>
     <ignored path="Transceptor Sonido.iws" />
@@ -150,8 +149,8 @@
       <file leaf-file-name="youtube.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/guardadores/youtube.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.10810811">
-              <caret line="204" column="60" selection-start-line="204" selection-start-column="60" selection-end-line="204" selection-end-column="60" />
+            <state vertical-scroll-proportion="0.47297296">
+              <caret line="209" column="48" selection-start-line="209" selection-start-column="48" selection-end-line="209" selection-end-column="48" />
               <folding>
                 <element signature="e#250#3068#0" expanded="false" />
                 <element signature="e#294#570#0" expanded="false" />
@@ -686,7 +685,13 @@
       <option name="project" value="LOCAL" />
       <updated>1468942554829</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Arreglado bug de congelamiento al hacer:1- Grabo&#10;2- modo youtube&#10;3- asigno tab&#10;4- detengo&#10;5- desactivo youtube&#10;6-crash">
+      <created>1468946357258</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1468946357258</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -748,7 +753,8 @@
     <MESSAGE value="GrabadorMP3 youtube necesita un ClienteYoutube previamente creado. Ya no crea el suyo propio cuando inicializa." />
     <MESSAGE value="Arreglado dipslay de listado de tabs" />
     <MESSAGE value="Arreglado bug de notificaciones multiples en corto tiempo por culpa de timer de funcion repetitiva no deshabilitado en el cambio de tab a observar. Limpieza y orden de código fuente." />
-    <option name="LAST_COMMIT_MESSAGE" value="Arreglado bug de notificaciones multiples en corto tiempo por culpa de timer de funcion repetitiva no deshabilitado en el cambio de tab a observar. Limpieza y orden de código fuente." />
+    <MESSAGE value="Arreglado bug de congelamiento al hacer:1- Grabo&#10;2- modo youtube&#10;3- asigno tab&#10;4- detengo&#10;5- desactivo youtube&#10;6-crash" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arreglado bug de congelamiento al hacer:1- Grabo&#10;2- modo youtube&#10;3- asigno tab&#10;4- detengo&#10;5- desactivo youtube&#10;6-crash" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1345,8 +1351,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/guardadores/youtube.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10810811">
-          <caret line="204" column="60" selection-start-line="204" selection-start-column="60" selection-end-line="204" selection-end-column="60" />
+        <state vertical-scroll-proportion="0.47297296">
+          <caret line="209" column="48" selection-start-line="209" selection-start-column="48" selection-end-line="209" selection-end-column="48" />
           <folding>
             <element signature="e#250#3068#0" expanded="false" />
             <element signature="e#294#570#0" expanded="false" />

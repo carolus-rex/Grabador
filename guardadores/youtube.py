@@ -87,6 +87,7 @@ class GuardadorWAV(GuardadorBase):
     def __init__(self, cliente_youtube, grabador=None):
         self.youtube = cliente_youtube
         self.PATH = "%HOMEPATH%\\grabador\\"
+        self.TEMP = "C:\\gra_temp"
         super(GuardadorWAV, self).__init__(grabador)
 
     def run(self):
@@ -147,6 +148,7 @@ class GuardadorMP3(GuardadorBase):
     def __init__(self, cliente_youtube, grabador=None):
         self.youtube = cliente_youtube
         self.PATH = "C:\\Users\\Administrador\\grabado\\"
+        self.TEMP = "C:\\gra_temp"
         super(GuardadorMP3, self).__init__(grabador)
 
     def run(self):
@@ -204,7 +206,12 @@ class GuardadorMP3(GuardadorBase):
         el nombre del archivo no existen problemas de que el nombre sea None"""
 
         assert self.archivo_name is not None, "Es None, no lo puedo creer ºº"
-        self.archivo = lame.open(self.archivo_name,"wb")
+        try:
+            self.archivo = lame.open(self.archivo_name,"xb")
+        except FileExistsError:
+            print("Archivo %s ya existe, grabando en temp" %self.archivo_name)
+            self.archivo_name = self.TEMP
+            self.archivo = lame.open(self.archivo_name, "wb")
 
         print(self.archivo_name)
 
