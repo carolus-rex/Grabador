@@ -110,9 +110,14 @@ class GrabadorUi(BoxLayout):
             self.grabador.guardar = False
 
     def toggle_youtube(self, wid, state):
-        #TODO: Opcion para desactivar el modo youtube
+        #TODO: Opción para desactivar el modo youtube
         if state == "down":
             YoutubePopup(grabadorui=self).open()
+        elif state == "normal":
+            if self._cliente_youtube is not None:
+                self._cliente_youtube.terminar()
+                self._cliente_youtube = None
+                self.grabador.cambiar_guardador(Guardador())
 
     def crear_guardador_youtube(self, wid, *args):
         self._cliente_youtube = ClienteYoutube(partial(self.on_youtube_lista__tabs_llega, wid))
@@ -139,6 +144,7 @@ class GrabadorUi(BoxLayout):
     def quitar_popup(self, wid, *args):
         if not self._tab_selected:
             self._cliente_youtube.terminar()
+            self._cliente_youtube = None
             self.ids.youtubetoggle.state = "normal"
         self._tab_selected = False
         #wid.ids.vista_scroll.borrar_cuadros()
@@ -146,7 +152,7 @@ class GrabadorUi(BoxLayout):
     def elegir_tab(self, wid, id, cliente_youtube, *args):
         # TODO: fix the race condition
         # GuardadorMP3 y cliente_youtube no entran en race condition porque set_tab ocurre
-        # depues de asignarse mutuamente.
+        # despues de asignarse mutuamente.
         # Grabador y GuardadorMp3 si pueden entrar en race condition porque puede que el nombre
         # del archivo sea seteado por cliente_youtube antes de que el guardador tenga grabador
         print("Tab elegida")

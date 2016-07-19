@@ -80,6 +80,7 @@ class ClienteYoutube(Thread):
 
     def terminar(self):
         self.client.close()
+        print("Cliente Youtube terminado")
 
 
 class GuardadorWAV(GuardadorBase):

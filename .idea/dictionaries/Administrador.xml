@@ -4,19 +4,28 @@
       <w>acciones</w>
       <w>actúa</w>
       <w>algún</w>
+      <w>altavoz</w>
       <w>arregla</w>
+      <w>arreglado</w>
       <w>asegura</w>
+      <w>asignarse</w>
       <w>cambiado</w>
       <w>cambios</w>
       <w>cierre</w>
       <w>decir</w>
+      <w>depues</w>
+      <w>desactivar</w>
       <w>desde</w>
+      <w>deshabilitado</w>
       <w>devuelve</w>
       <w>documentación</w>
       <w>ejecute</w>
+      <w>elegida</w>
       <w>elige</w>
       <w>elijo</w>
       <w>empieza</w>
+      <w>entran</w>
+      <w>entrar</w>
       <w>entre</w>
       <w>escalador</w>
       <w>está</w>
@@ -29,16 +38,21 @@
       <w>haya</w>
       <w>indica</w>
       <w>interpretar</w>
+      <w>limpieza</w>
+      <w>llega</w>
       <w>lugar</w>
       <w>modifique</w>
       <w>momento</w>
       <w>monitorear</w>
       <w>mucho</w>
+      <w>mutuamente</w>
       <w>mínimo</w>
       <w>necesidad</w>
       <w>normalizador</w>
       <w>nuevo</w>
+      <w>observar</w>
       <w>ocurriese</w>
+      <w>opción</w>
       <w>parlantes</w>
       <w>pausado</w>
       <w>permitir</w>
@@ -49,6 +63,8 @@
       <w>recalcular</w>
       <w>reconocida</w>
       <w>recuperada</w>
+      <w>reemplazar</w>
+      <w>repetitiva</w>
       <w>responda</w>
       <w>silencio</w>
       <w>simular</w>
@@ -56,6 +72,7 @@
       <w>solicitará</w>
       <w>soporta</w>
       <w>terminada</w>
+      <w>terminado</w>
       <w>valores</w>
       <w>éxito</w>
     </words>
