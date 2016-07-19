@@ -132,7 +132,8 @@ class Grabador(object):
         print("Grabador vacio data")
         # Me aseguro de que todos los datos registrados se graben
         try:
-            self.guardador.archivo.close()
+            if not self.guardador.archivo.closed:
+                self.guardador.archivo.close()
         except AttributeError:
             pass
         #Esto causara un crash Nonetype. Es feo, pero es facil de implementar
