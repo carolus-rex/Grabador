@@ -41,22 +41,22 @@
         BoxLayout:
             orientation: "vertical"
             Etiqueta:
-                text: "Input"
-                font_size: 20
-            Spinner:
-                size_hint_y: None
-                height: 60
-                id:inputs
-                on_text: root.change_output(*args)
-        BoxLayout:
-            orientation: "vertical"
-            Etiqueta:
                 text: "Output"
                 font_size: 20
             Spinner:
                 size_hint_y: None
                 height: 60
                 id:outputs
+                on_text: root.change_output(*args)
+        BoxLayout:
+            orientation: "vertical"
+            Etiqueta:
+                text: "Input"
+                font_size: 20
+            Spinner:
+                size_hint_y: None
+                height: 60
+                id:inputs
                 on_text: root.change_input(*args)
     GridLayout:
         cols:2

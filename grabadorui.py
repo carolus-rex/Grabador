@@ -4,6 +4,7 @@ from time import sleep
 
 import kivy
 from kivy.uix.togglebutton import ToggleButton
+from os.path import join, expanduser
 from pywinvolume.volume_controller import KeyVolumeController
 
 from grabador import Grabador
@@ -42,6 +43,7 @@ class AskToggleButton(ToggleButton):
 
 class GrabadorUi(BoxLayout):
     def __init__(self, **kwargs):
+        self.config_file = join(expanduser("~"), "grabado\\config.txt")
         self.grabador = Grabador()
         Thread(target=self.grabador.iniciar, name="grabador").start()
 
@@ -49,13 +51,32 @@ class GrabadorUi(BoxLayout):
         self.key_volume_controller.start()
 
         super(GrabadorUi, self).__init__(**kwargs)
-        self.ids.inputs.text = self.grabador.p.get_default_input_device_info()["name"]
-        self.ids.inputs.values = self.grabador.get_inputs()
 
-        self.ids.outputs.text = self.grabador.p.get_default_output_device_info()["name"]
+        micro, parlante = self.obtener_datos_config_file()
+        if micro is not None and parlante is not None:
+            self.change_input(None, micro)
+            self.change_output(None, parlante)
+            self.ids.inputs.text = micro
+            self.ids.outputs.text = parlante
+        else:
+            self.ids.inputs.text = self.grabador.p.get_default_input_device_info()["name"]
+            self.ids.outputs.text = self.grabador.p.get_default_output_device_info()["name"]
+
+        self.ids.inputs.values = self.grabador.get_inputs()
         self.ids.outputs.values = self.grabador.get_outputs()
+
         self._cliente_youtube = None
         self._tab_selected = False
+
+    def obtener_datos_config_file(self):
+        try:
+            config_file = open(self.config_file)
+        except FileNotFoundError:
+            return None, None
+        input = config_file.readline()[:-1]
+        output = config_file.readline()
+        config_file.close()
+        return input, output
 
     def search_device(self, name):
         index = 0
@@ -63,16 +84,23 @@ class GrabadorUi(BoxLayout):
             while True:
                 device = self.grabador.p.get_device_info_by_index(index)
                 if device["name"] == name:
+                    print(name, index)
                     return device["index"]
                 index += 1
         except OSError:
             print("esto no debería ocurrir")
 
     def change_input(self, wid, name):
+        config_file = open(self.config_file, "w")
+        config_file.writelines([name + "\n", self.ids.outputs.text])
+        config_file.close()
         device = self.search_device(name)
         self.grabador.cambios["input"] = device
 
     def change_output(self, wid, name):
+        config_file = open(self.config_file, "w")
+        config_file.writelines([self.ids.inputs.text + "\n", name])
+        config_file.close()
         device = self.search_device(name)
         self.grabador.cambios["output"] = device
 

@@ -15,8 +15,8 @@ class Grabador(object):
         self.format_in_bits = 16
         self.channels = 2
         self.rate = 48000
-        self.parlantes = self.p.get_default_input_device_info()["index"]
-        self.fuente = self.p.get_default_output_device_info()["index"]
+        self.micro = self.p.get_default_input_device_info()["index"]
+        self.parlantes = self.p.get_default_output_device_info()["index"]
         self.stream = None
         self.crear_stream()
         self.data_chunks = []
@@ -27,6 +27,7 @@ class Grabador(object):
         self._bloquear_data_chunks = False
 
     def get_inputs(self):
+        """get_micros"""
         values = []
         index = 0
         try:
@@ -63,10 +64,10 @@ class Grabador(object):
             if self.cambios:
                 tx_cambios = {}
                 for key, value in self.cambios.items():
-                    if key == "output":
+                    if key == "input":
+                        self.micro = value
+                    elif key == "output":
                         self.parlantes = value
-                    elif key == "input":
-                        self.fuente = value
                     elif key == "rate":
                         self.rate = value
                         tx_cambios[key] = value
@@ -96,8 +97,8 @@ class Grabador(object):
                                   format=pyaudio_format,
                                   input=True,
                                   output=True,
-                                  input_device_index=self.parlantes,
-                                  output_device_index=self.fuente)
+                                  input_device_index=self.micro,
+                                  output_device_index=self.parlantes)
 
     def simular_formato(self, sound):
         #TODO: Arregla este metodo
