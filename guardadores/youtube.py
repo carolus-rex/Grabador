@@ -26,15 +26,15 @@ class ClienteYoutube(Thread):
     def run(self):
         #TODO: Reemplazar los " " por un caracter mas relacionado con el original
         print("Thread Iniciado cliente youtube")
-        rep = {"\\": " ",
-               "/": " ",
-               ":": " ",
-               "*": " ",
-               "?": " ",
-               '"': " ",
-               "<": " ",
-               ">": " ",
-               "|": " "} # define desired replacements here
+        rep = {"\\": "-",
+               "/": "-",
+               ":": "-",
+               "*": "º",
+               "?": "¿",
+               '"': "'",
+               "<": "-",
+               ">": "-",
+               "|": "-"} # define desired replacements here
 
         # use these three lines to do the replacement
         rep = dict((re.escape(k), v) for k, v in rep.items())
