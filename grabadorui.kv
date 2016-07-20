@@ -1,16 +1,20 @@
+# IMPORTANTE. EL ARCHIVO ESTA CODIFCADO EN windows-1252. Kivy para python 3 lee los
+# archivos en esa codificación de forma automática y no muestra los caracteres
+# correctamente si está en UTF-8
 <YoutubePopup>:
     grabadorui:
     on_open: self.grabadorui.crear_guardador_youtube(*args)
     on_dismiss: self.grabadorui.quitar_popup(*args)
     size_hint: None, None
     size: 500, 500
-    title:"Elige la pestaÃ±a"
+    title:"Elige la pestaña"
     BoxLayout:
         orientation: "vertical"
         Etiqueta:
             color:
         VistaScroll:
             id: vista_scroll
+
 
 <GrabadorUi>:
     orientation: "vertical"
@@ -21,23 +25,21 @@
         halign: "center"
         font_size: 30
     ToggleButton:
-        text: "grabar"
+        text: "Grabar"
         id: grabartoggle
         size_hint_y: None
-        height: 60
+        height: 50
         on_state: root.toggle_grabar(*args)
     AskToggleButton:
-        text: "pausar"
+        text: "Pausar"
         id: pausartoggle
         size_hint_y: None
-        height: 60
+        height: 50
         check_permission: root.permitir_pausartoggle
         on_state: root.toggle_pausar(*args)
-    #Etiqueta:
-        #text:"Buen intento Judas, solo eliminaste la copia de trabajo. Desactive el cambio de input y output para que no juegues"
-        #font_size: 25
     BoxLayout:
         orientation: "horizontal"
+        size_hint_y: None
         BoxLayout:
             orientation: "vertical"
             Etiqueta:
@@ -94,7 +96,7 @@
         BoxLayout:
             orientation: "vertical"
             Etiqueta:
-                text: "Tiempo de grabaciÃ³n mÃ­nimo."
+                text: "Tiempo de grabación mínimo."
             DatosInput:
                 id: min_time
                 text: "60"
@@ -107,4 +109,3 @@
                 text:"Modo Youtube"
                 id:youtubetoggle
                 on_state: root.toggle_youtube(*args)
-

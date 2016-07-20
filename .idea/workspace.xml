@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e54b8c0-e2d4-4075-8ab6-eb5bf4385fbc" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grabador.py" afterPath="$PROJECT_DIR$/grabador.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grabadorui.kv" afterPath="$PROJECT_DIR$/grabadorui.kv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grabadorui.py" afterPath="$PROJECT_DIR$/grabadorui.py" />
     </list>
@@ -26,48 +26,96 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="grabadorui.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="grabadorui.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grabadorui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4954683">
-              <caret line="45" column="59" selection-start-line="45" selection-start-column="59" selection-end-line="45" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding>
-                <element signature="e#0#29#0" expanded="true" />
-                <element signature="e#735#764#0" expanded="false" />
-                <element signature="e#808#1021#0" expanded="false" />
-                <element signature="e#893#1021#0" expanded="false" />
-                <element signature="e#2176#2434#0" expanded="false" />
-                <element signature="e#2479#2819#0" expanded="false" />
-                <element signature="e#4434#4578#0" expanded="false" />
-                <element signature="e#4629#5027#0" expanded="false" />
-                <element signature="e#5499#5586#0" expanded="false" />
-                <element signature="e#6521#6767#0" expanded="false" />
-                <element signature="e#7566#7658#0" expanded="false" />
-                <element signature="e#7714#7798#0" expanded="false" />
-                <element signature="e#7858#7965#0" expanded="false" />
-                <element signature="e#8020#8190#0" expanded="false" />
-                <element signature="e#8221#8265#0" expanded="false" />
-                <element signature="e#8246#8265#0" expanded="false" />
+                <element signature="e#712#741#0" expanded="false" />
+                <element signature="e#785#998#0" expanded="false" />
+                <element signature="e#870#998#0" expanded="false" />
+                <element signature="e#2153#2411#0" expanded="false" />
+                <element signature="e#2456#2796#0" expanded="false" />
+                <element signature="e#4411#4555#0" expanded="false" />
+                <element signature="e#4606#5004#0" expanded="false" />
+                <element signature="e#5476#5563#0" expanded="false" />
+                <element signature="e#6498#6744#0" expanded="false" />
+                <element signature="e#7543#7635#0" expanded="false" />
+                <element signature="e#7691#7775#0" expanded="false" />
+                <element signature="e#7835#7942#0" expanded="false" />
+                <element signature="e#7997#8167#0" expanded="false" />
+                <element signature="e#8198#8242#0" expanded="false" />
+                <element signature="e#8223#8242#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="grabadorui.kv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grabadorui.kv">
+      <file leaf-file-name="widgetsbasicos.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/widgetsbasicos.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="2" selection-start-line="39" selection-start-column="2" selection-end-line="39" selection-end-column="2" />
+              <caret line="242" column="42" selection-start-line="242" selection-start-column="42" selection-end-line="242" selection-end-column="42" />
+              <folding>
+                <element signature="e#1078#1082#0" expanded="false" />
+                <element signature="e#1112#1330#0" expanded="false" />
+                <element signature="e#1370#1640#0" expanded="false" />
+                <element signature="e#1451#1502#0" expanded="false" />
+                <element signature="e#1545#1594#0" expanded="false" />
+                <element signature="e#1626#1640#0" expanded="false" />
+                <element signature="e#1676#2150#0" expanded="false" />
+                <element signature="e#2190#4113#0" expanded="false" />
+                <element signature="e#2190#2460#1" expanded="false" />
+                <element signature="e#2700#2971#0" expanded="false" />
+                <element signature="e#3019#3057#0" expanded="false" />
+                <element signature="e#3097#3218#0" expanded="false" />
+                <element signature="e#3266#3318#0" expanded="false" />
+                <element signature="e#3368#3372#0" expanded="false" />
+                <element signature="e#3423#3508#0" expanded="false" />
+                <element signature="e#4158#4302#0" expanded="false" />
+                <element signature="e#4196#4302#0" expanded="false" />
+                <element signature="e#4351#6856#0" expanded="false" />
+                <element signature="e#5155#5275#0" expanded="false" />
+                <element signature="e#5320#5346#0" expanded="false" />
+                <element signature="e#5389#6306#0" expanded="false" />
+                <element signature="e#6350#6702#0" expanded="false" />
+                <element signature="e#6743#6799#0" expanded="false" />
+                <element signature="e#6849#6853#0" expanded="false" />
+                <element signature="e#7094#7187#0" expanded="false" />
+                <element signature="e#7235#7432#0" expanded="false" />
+                <element signature="e#7563#7787#0" expanded="false" />
+                <element signature="e#7827#7858#0" expanded="false" />
+                <element signature="e#7899#7936#0" expanded="false" />
+                <element signature="e#9665#9704#0" expanded="false" />
+                <element signature="e#9748#9787#0" expanded="false" />
+                <element signature="e#9822#9826#0" expanded="false" />
+                <element signature="e#9857#10201#0" expanded="false" />
+                <element signature="e#9910#10201#0" expanded="false" />
+                <element signature="e#10240#11454#0" expanded="false" />
+                <element signature="e#10339#11454#0" expanded="false" />
+                <element signature="e#11484#11507#0" expanded="false" />
+                <element signature="e#11660#11672#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="grabadorui.kv" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/grabadorui.kv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.64456236">
+              <caret line="81" column="25" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="grabador.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grabador.py">
+      <file leaf-file-name="widgetsbasicos.kv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/widgetsbasicos.kv">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+              <caret line="98" column="14" selection-start-line="98" selection-start-column="14" selection-end-line="98" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -78,9 +126,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Kivy" />
         <option value="Setup Script" />
         <option value="Python Script" />
+        <option value="Python Kivy" />
       </list>
     </option>
   </component>
@@ -123,9 +171,11 @@
         <option value="$PROJECT_DIR$/widgetsbasicos.kv" />
         <option value="$PROJECT_DIR$/firefox_addon/index.js" />
         <option value="$PROJECT_DIR$/guardadores/youtube.py" />
-        <option value="$PROJECT_DIR$/grabadorui.kv" />
         <option value="$PROJECT_DIR$/grabador.py" />
         <option value="$PROJECT_DIR$/grabadorui.py" />
+        <option value="$PROJECT_DIR$/pruebas/prueba kivy unicode.py" />
+        <option value="$PROJECT_DIR$/pruebas/miclase.kv" />
+        <option value="$PROJECT_DIR$/grabadorui.kv" />
       </list>
     </option>
   </component>
@@ -231,7 +281,7 @@
       <recent name="C:\Users\Administrador\PycharmProjects\Cliente de Sonido" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.grabadorui">
+  <component name="RunManager" selected="Python.prueba kivy unicode">
     <configuration default="false" name="grabadorui" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -245,23 +295,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Cliente de Sonido" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/grabadorui.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="limpiador" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Cliente de Sonido" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/limpiador.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -313,6 +346,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Cliente de Sonido" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/guardadores/youtube.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="prueba kivy unicode" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pruebas" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Cliente de Sonido" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pruebas/prueba kivy unicode.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -441,18 +491,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.grabadorui" />
-      <item index="1" class="java.lang.String" itemvalue="Python.limpiador" />
-      <item index="2" class="java.lang.String" itemvalue="Python.prueba servidor tcp" />
-      <item index="3" class="java.lang.String" itemvalue="Python.prueba cliente tcp" />
-      <item index="4" class="java.lang.String" itemvalue="Python.youtube" />
+      <item index="1" class="java.lang.String" itemvalue="Python.prueba servidor tcp" />
+      <item index="2" class="java.lang.String" itemvalue="Python.prueba cliente tcp" />
+      <item index="3" class="java.lang.String" itemvalue="Python.youtube" />
+      <item index="4" class="java.lang.String" itemvalue="Python.prueba kivy unicode" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.grabadorui" />
-        <item index="1" class="java.lang.String" itemvalue="Python.youtube" />
-        <item index="2" class="java.lang.String" itemvalue="Python.prueba cliente tcp" />
-        <item index="3" class="java.lang.String" itemvalue="Python.prueba servidor tcp" />
-        <item index="4" class="java.lang.String" itemvalue="Python.limpiador" />
+        <item index="1" class="java.lang.String" itemvalue="Python.prueba kivy unicode" />
+        <item index="2" class="java.lang.String" itemvalue="Python.youtube" />
+        <item index="3" class="java.lang.String" itemvalue="Python.prueba cliente tcp" />
+        <item index="4" class="java.lang.String" itemvalue="Python.prueba servidor tcp" />
       </list>
     </recent_temporary>
   </component>
@@ -575,7 +625,13 @@
       <option name="project" value="LOCAL" />
       <updated>1468946461047</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Nombrado de atributos de input y output confuso reemplazado.&#10;Agregado archivo simple de configuración para input y output.">
+      <created>1468971420100</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1468971420100</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -596,13 +652,13 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.6918009" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4535433" sideWeight="0.49487555" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43464568" sideWeight="0.8140556" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16062993" sideWeight="0.17423134" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5606299" sideWeight="0.19253294" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36220473" sideWeight="0.4941435" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36220473" sideWeight="0.49121523" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.56377953" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43464568" sideWeight="0.18594436" order="7" side_tool="true" content_ui="tabs" x="-10" y="275" width="1382" height="275" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36220473" sideWeight="0.5087848" order="7" side_tool="true" content_ui="tabs" x="-10" y="275" width="1382" height="275" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -639,7 +695,8 @@
     <MESSAGE value="Arreglado bug de notificaciones multiples en corto tiempo por culpa de timer de funcion repetitiva no deshabilitado en el cambio de tab a observar. Limpieza y orden de código fuente." />
     <MESSAGE value="Arreglado bug de congelamiento al hacer:1- Grabo&#10;2- modo youtube&#10;3- asigno tab&#10;4- detengo&#10;5- desactivo youtube&#10;6-crash" />
     <MESSAGE value="Archivos(videos) creados no sobreescritos. Videos repetidos se guardan temporalmente en grab_temp" />
-    <option name="LAST_COMMIT_MESSAGE" value="Archivos(videos) creados no sobreescritos. Videos repetidos se guardan temporalmente en grab_temp" />
+    <MESSAGE value="Nombrado de atributos de input y output confuso reemplazado.&#10;Agregado archivo simple de configuración para input y output." />
+    <option name="LAST_COMMIT_MESSAGE" value="Nombrado de atributos de input y output confuso reemplazado.&#10;Agregado archivo simple de configuración para input y output." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -673,30 +730,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/guardadores/youtube.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding>
-            <element signature="e#294#570#0" expanded="false" />
-            <element signature="e#599#2861#0" expanded="false" />
-            <element signature="e#2895#2911#0" expanded="false" />
-            <element signature="e#2952#2972#0" expanded="false" />
-            <element signature="e#3362#4762#0" expanded="false" />
-            <element signature="e#4819#4983#0" expanded="false" />
-            <element signature="e#5824#7405#0" expanded="false" />
-            <element signature="e#7462#7660#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/Kivy-1.9.0-py3.4-win32-x64/kivy34/kivy/uix/togglebutton.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.5172415">
-          <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/firefox_addon/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -885,13 +918,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/widgetsbasicos.kv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="98" column="14" selection-start-line="98" selection-start-column="14" selection-end-line="98" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/Kivy-1.9.0-py3.4-win32-x64/kivy34/kivy/core/window/window_sdl2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33243242">
@@ -982,14 +1008,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="256" column="0" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/Kivy-1.9.0-py3.4-win32-x64/kivy34/kivy/lang.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1464" column="0" selection-start-line="1464" selection-start-column="0" selection-end-line="1464" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1091,53 +1109,6 @@
             <element signature="e#14663#15006#1" expanded="false" />
             <element signature="e#15242#15958#0" expanded="false" />
             <element signature="e#15242#15532#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/widgetsbasicos.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0846395">
-          <caret line="242" column="42" selection-start-line="242" selection-start-column="42" selection-end-line="242" selection-end-column="42" />
-          <folding>
-            <element signature="e#1078#1082#0" expanded="false" />
-            <element signature="e#1112#1330#0" expanded="false" />
-            <element signature="e#1370#1640#0" expanded="false" />
-            <element signature="e#1451#1502#0" expanded="false" />
-            <element signature="e#1545#1594#0" expanded="false" />
-            <element signature="e#1626#1640#0" expanded="false" />
-            <element signature="e#1676#2150#0" expanded="false" />
-            <element signature="e#2190#4113#0" expanded="false" />
-            <element signature="e#2190#2460#1" expanded="false" />
-            <element signature="e#2700#2971#0" expanded="false" />
-            <element signature="e#3019#3057#0" expanded="false" />
-            <element signature="e#3097#3218#0" expanded="false" />
-            <element signature="e#3266#3318#0" expanded="false" />
-            <element signature="e#3368#3372#0" expanded="false" />
-            <element signature="e#3423#3508#0" expanded="false" />
-            <element signature="e#4158#4302#0" expanded="false" />
-            <element signature="e#4196#4302#0" expanded="false" />
-            <element signature="e#4351#6856#0" expanded="false" />
-            <element signature="e#5155#5275#0" expanded="false" />
-            <element signature="e#5320#5346#0" expanded="false" />
-            <element signature="e#5389#6306#0" expanded="false" />
-            <element signature="e#6350#6702#0" expanded="false" />
-            <element signature="e#6743#6799#0" expanded="false" />
-            <element signature="e#6849#6853#0" expanded="false" />
-            <element signature="e#7094#7187#0" expanded="false" />
-            <element signature="e#7235#7432#0" expanded="false" />
-            <element signature="e#7563#7787#0" expanded="false" />
-            <element signature="e#7827#7858#0" expanded="false" />
-            <element signature="e#7899#7936#0" expanded="false" />
-            <element signature="e#9665#9704#0" expanded="false" />
-            <element signature="e#9748#9787#0" expanded="false" />
-            <element signature="e#9822#9826#0" expanded="false" />
-            <element signature="e#9857#10201#0" expanded="false" />
-            <element signature="e#9910#10201#0" expanded="false" />
-            <element signature="e#10240#11454#0" expanded="false" />
-            <element signature="e#10339#11454#0" expanded="false" />
-            <element signature="e#11484#11507#0" expanded="false" />
-            <element signature="e#11660#11672#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1291,44 +1262,114 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grabadorui.kv">
+    <entry file="file://$PROJECT_DIR$/grabador.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="2" selection-start-line="39" selection-start-column="2" selection-end-line="39" selection-end-column="2" />
-          <folding />
+        <state vertical-scroll-proportion="0.47734138">
+          <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+          <folding>
+            <element signature="e#150#5977#0" expanded="false" />
+            <element signature="e#762#1138#0" expanded="false" />
+            <element signature="e#1175#1527#0" expanded="false" />
+            <element signature="e#1560#3002#0" expanded="false" />
+            <element signature="e#3040#3600#0" expanded="false" />
+            <element signature="e#3648#4970#0" expanded="false" />
+            <element signature="e#5024#5977#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grabador.py">
+    <entry file="file://$USER_HOME$/Downloads/Kivy-1.9.0-py3.4-win32-x64/kivy34/kivy/lang.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.33267328">
+          <caret line="1360" column="0" selection-start-line="1360" selection-start-column="0" selection-end-line="1360" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grabadorui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4954683">
-          <caret line="45" column="59" selection-start-line="45" selection-start-column="59" selection-end-line="45" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#735#764#0" expanded="false" />
-            <element signature="e#808#1021#0" expanded="false" />
-            <element signature="e#893#1021#0" expanded="false" />
-            <element signature="e#2176#2434#0" expanded="false" />
-            <element signature="e#2479#2819#0" expanded="false" />
-            <element signature="e#4434#4578#0" expanded="false" />
-            <element signature="e#4629#5027#0" expanded="false" />
-            <element signature="e#5499#5586#0" expanded="false" />
-            <element signature="e#6521#6767#0" expanded="false" />
-            <element signature="e#7566#7658#0" expanded="false" />
-            <element signature="e#7714#7798#0" expanded="false" />
-            <element signature="e#7858#7965#0" expanded="false" />
-            <element signature="e#8020#8190#0" expanded="false" />
-            <element signature="e#8221#8265#0" expanded="false" />
-            <element signature="e#8246#8265#0" expanded="false" />
+            <element signature="e#712#741#0" expanded="false" />
+            <element signature="e#785#998#0" expanded="false" />
+            <element signature="e#870#998#0" expanded="false" />
+            <element signature="e#2153#2411#0" expanded="false" />
+            <element signature="e#2456#2796#0" expanded="false" />
+            <element signature="e#4411#4555#0" expanded="false" />
+            <element signature="e#4606#5004#0" expanded="false" />
+            <element signature="e#5476#5563#0" expanded="false" />
+            <element signature="e#6498#6744#0" expanded="false" />
+            <element signature="e#7543#7635#0" expanded="false" />
+            <element signature="e#7691#7775#0" expanded="false" />
+            <element signature="e#7835#7942#0" expanded="false" />
+            <element signature="e#7997#8167#0" expanded="false" />
+            <element signature="e#8198#8242#0" expanded="false" />
+            <element signature="e#8223#8242#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/widgetsbasicos.kv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="98" column="14" selection-start-line="98" selection-start-column="14" selection-end-line="98" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/widgetsbasicos.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="242" column="42" selection-start-line="242" selection-start-column="42" selection-end-line="242" selection-end-column="42" />
+          <folding>
+            <element signature="e#1078#1082#0" expanded="false" />
+            <element signature="e#1112#1330#0" expanded="false" />
+            <element signature="e#1370#1640#0" expanded="false" />
+            <element signature="e#1451#1502#0" expanded="false" />
+            <element signature="e#1545#1594#0" expanded="false" />
+            <element signature="e#1626#1640#0" expanded="false" />
+            <element signature="e#1676#2150#0" expanded="false" />
+            <element signature="e#2190#4113#0" expanded="false" />
+            <element signature="e#2190#2460#1" expanded="false" />
+            <element signature="e#2700#2971#0" expanded="false" />
+            <element signature="e#3019#3057#0" expanded="false" />
+            <element signature="e#3097#3218#0" expanded="false" />
+            <element signature="e#3266#3318#0" expanded="false" />
+            <element signature="e#3368#3372#0" expanded="false" />
+            <element signature="e#3423#3508#0" expanded="false" />
+            <element signature="e#4158#4302#0" expanded="false" />
+            <element signature="e#4196#4302#0" expanded="false" />
+            <element signature="e#4351#6856#0" expanded="false" />
+            <element signature="e#5155#5275#0" expanded="false" />
+            <element signature="e#5320#5346#0" expanded="false" />
+            <element signature="e#5389#6306#0" expanded="false" />
+            <element signature="e#6350#6702#0" expanded="false" />
+            <element signature="e#6743#6799#0" expanded="false" />
+            <element signature="e#6849#6853#0" expanded="false" />
+            <element signature="e#7094#7187#0" expanded="false" />
+            <element signature="e#7235#7432#0" expanded="false" />
+            <element signature="e#7563#7787#0" expanded="false" />
+            <element signature="e#7827#7858#0" expanded="false" />
+            <element signature="e#7899#7936#0" expanded="false" />
+            <element signature="e#9665#9704#0" expanded="false" />
+            <element signature="e#9748#9787#0" expanded="false" />
+            <element signature="e#9822#9826#0" expanded="false" />
+            <element signature="e#9857#10201#0" expanded="false" />
+            <element signature="e#9910#10201#0" expanded="false" />
+            <element signature="e#10240#11454#0" expanded="false" />
+            <element signature="e#10339#11454#0" expanded="false" />
+            <element signature="e#11484#11507#0" expanded="false" />
+            <element signature="e#11660#11672#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grabadorui.kv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64456236">
+          <caret line="81" column="25" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -1,6 +1,5 @@
 from functools import partial
 from threading import Thread
-from time import sleep
 
 import kivy
 from kivy.uix.togglebutton import ToggleButton
