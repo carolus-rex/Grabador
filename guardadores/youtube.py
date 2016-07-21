@@ -190,7 +190,7 @@ class GuardadorMP3(GuardadorBase):
     def interpretar_orden(self, orden, valor):
         if orden == "titulo":
             self.archivo_name = self.PATH + valor + ".mp3"
-            print("Nuevo titulo")
+            print("Interpretar orden Nuevo titulo")
         else:
             super(GuardadorMP3, self).interpretar_orden(orden, valor)
 
@@ -201,7 +201,7 @@ class GuardadorMP3(GuardadorBase):
         # elif self.archivo_name is not None and self.archivo is not None:
         #     self.archivo.close()
         """En teoria las lineas de arriba ya no son necesarias en ningun caso
-        porque externamente cierro el archivo y como ademas, en el caso especifico
+        porque externamente cierro el archivo y como además, en el caso específico
         de los grabadores youtube, la grabación no empieza hasta que haya llegado
         el nombre del archivo no existen problemas de que el nombre sea None"""
 

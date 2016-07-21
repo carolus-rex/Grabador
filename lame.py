@@ -292,9 +292,13 @@ class FileLikeLame(Lame):
             return 0
 
     def close(self):
-        print(self.finish(), "codigo return lame")
-        self.ofile.close()
-        self.closed = True
+        if self.closed:
+            print("Archivo cerrado previamente, 'volviendo a cerrarlo'")
+            pass
+        else:
+            print(self.finish(), "codigo return lame")
+            self.ofile.close()
+            self.closed = True
 
 
 if __name__ == "__main__":
