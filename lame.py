@@ -254,6 +254,7 @@ class FileLikeLame(Lame):
         self.started = False
         self.closed = False
         super(FileLikeLame, self).__init__(ofile=ofile)
+        self.setName(name)
 
     def _recalcular_chunk_size(self):
         self.chunk_size = self.samplerate * self.channels * (self.input_wordlength / 8)
