@@ -211,6 +211,9 @@ class GrabadorUi(BoxLayout):
         except ValueError:
             pass
 
+    def saltar_video(self):
+        self.grabador.cambios["saltar"] = True
+
 
 class GrabadorApp(App):
     def build(self):

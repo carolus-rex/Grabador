@@ -2,6 +2,7 @@ import re
 import json
 import wave
 from socket import AF_INET, socket, SOCK_STREAM
+from subprocess import check_call
 from threading import Thread
 
 __author__ = "Daniel"
@@ -191,6 +192,11 @@ class GuardadorMP3(GuardadorBase):
         if orden == "titulo":
             self.archivo_name = self.PATH + valor + ".mp3"
             print("Interpretar orden Nuevo titulo")
+        elif orden == "saltar":
+            self.archivo.close()
+            check_call(["del", self.archivo.name], shell=True)
+            self.archivo_name = self.TEMP
+            print("Pronto dira que el archivo ya existe, temp se grabara en si mismo porque temp ya existe")
         else:
             super(GuardadorMP3, self).interpretar_orden(orden, valor)
 

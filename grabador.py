@@ -77,7 +77,7 @@ class Grabador(object):
                     elif key == "format_in_bits":
                         self.format_in_bits = value
                         tx_cambios[key] = pyaudio.paInt16 if 1 <= value <= 16 else pyaudio.paInt32
-                    elif key == "cerrar":
+                    else:
                         tx_cambios[key] = value
                 self.cambios.clear()
                 self.stream.close()
