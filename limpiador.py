@@ -1,3 +1,4 @@
+import os
 import wave
 from subprocess import check_output, call
 
@@ -6,7 +7,7 @@ import lame
 __author__ = "Daniel"
 
 
-directory = "C:\\Users\\Administrador\\grabado\\"
+directory = os.path.join(os.path.expanduser("~"), "grabado") + '\\'
 
 
 def get_files():

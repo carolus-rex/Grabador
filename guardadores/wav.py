@@ -1,5 +1,6 @@
 import wave
 from time import sleep, strftime
+import os
 
 from guardadores.base import GuardadorBase
 
@@ -53,11 +54,11 @@ class Guardador(GuardadorBase):
                 self.archivo = wave.open(self.archivo_name, "wb")
                 print("No")
             else:
-                self.archivo_name = "C:\\Users\\Administrador\\grabado\\" + strftime("%y-%m-%d--%H-%M-%S") + ".wav"
+                self.archivo_name = os.path.join(self.DATA_PATH, strftime("%y-%m-%d--%H-%M-%S") + ".wav")
                 self.archivo = wave.open(self.archivo_name, "wb")
                 print("Si " + self.archivo_name)
         except AttributeError:
-            self.archivo_name = "C:\\Users\\Administrador\\grabado\\" + strftime("%y-%m-%d--%H-%M-%S") + ".wav"
+            self.archivo_name = os.path.join(self.DATA_PATH, strftime("%y-%m-%d--%H-%M-%S") + ".wav")
             self.archivo = wave.open(self.archivo_name, "wb")
             print("Si " + self.archivo_name)
         self.archivo.setframerate(self.rate)

@@ -1,6 +1,8 @@
 from time import sleep, strftime
 
 import lame
+import os
+
 from guardadores.base import GuardadorBase
 
 __author__ = "Daniel"
@@ -55,12 +57,12 @@ class Guardador(GuardadorBase):
                 print("No")
             else:
                 # Crea un nuevo archivo
-                self.archivo_name = "C:\\Users\\Administrador\\grabado\\" + strftime("%y-%m-%d--%H-%M-%S") + ".mp3"
+                self.archivo_name = os.path.join(self.DATA_PATH, strftime("%y-%m-%d--%H-%M-%S") + ".mp3")
                 self.archivo = lame.open(self.archivo_name, "xb")
                 print("Si " + self.archivo_name)
         except AttributeError:
             # Crea el primer archivo
-            self.archivo_name = "C:\\Users\\Administrador\\grabado\\" + strftime("%y-%m-%d--%H-%M-%S") + ".mp3"
+            self.archivo_name = os.path.join(self.DATA_PATH, strftime("%y-%m-%d--%H-%M-%S") + ".mp3")
             self.archivo = lame.open(self.archivo_name, "wb")
             print("Si " + self.archivo_name)
         self.archivo.setframerate(self.rate)

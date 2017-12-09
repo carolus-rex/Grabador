@@ -3,7 +3,7 @@ from threading import Thread
 
 import kivy
 from kivy.uix.togglebutton import ToggleButton
-from os.path import join, expanduser
+import os
 from pywinvolume.volume_controller import KeyVolumeController
 
 from grabador import Grabador
@@ -41,8 +41,11 @@ class AskToggleButton(ToggleButton):
 
 
 class GrabadorUi(BoxLayout):
+    DATA_PATH = os.path.join(os.path.expanduser("~"), "grabado")
+    config_file = os.path.join(DATA_PATH, "config.txt")
+
     def __init__(self, **kwargs):
-        self.config_file = join(expanduser("~"), "grabado\\config.txt")
+        self.asegurarse_existen_directorios()
         self.grabador = Grabador()
         Thread(target=self.grabador.iniciar, name="grabador").start()
 
@@ -67,13 +70,24 @@ class GrabadorUi(BoxLayout):
         self._cliente_youtube = None
         self._tab_selected = False
 
+    def asegurarse_existen_directorios(self):
+        if not os.path.exists(self.DATA_PATH):
+            os.makedirs(self.DATA_PATH)
+
     def obtener_datos_config_file(self):
         try:
             config_file = open(self.config_file)
         except FileNotFoundError:
             return None, None
+
         input = config_file.readline()[:-1]
+        if input == '':
+            input = None
+
         output = config_file.readline()
+        if output == '':
+            output = None
+
         config_file.close()
         return input, output
 

@@ -152,7 +152,7 @@ class Lame(threading.Thread):
 
     #   TODO: Extend me to work for all samplerates
     def start(self, *args, **kwargs):
-        call = ["C:\\Users\\Administrador\\Downloads\\lame3.99.5\\lame"]
+        call = ["lame"]
         if self.channels == 1:
             call.append("-m")
             call.append("m")

@@ -2,11 +2,14 @@ from threading import Thread
 
 import numpy as np
 import pyaudio
+import os
 
 __author__ = "Daniel"
 
 
 class GuardadorBase(Thread):
+    DATA_PATH = os.path.join(os.path.expanduser("~"), "grabado")
+
     def __init__(self, grabador=None):
         self.archivo_min_duration = 60
         # _iniciado sin grabador permite crear guardadores sin que tengan que ser

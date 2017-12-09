@@ -8,6 +8,7 @@ from threading import Thread
 __author__ = "Daniel"
 
 from time import sleep
+import os
 
 import lame
 from guardadores.base import GuardadorBase
@@ -85,10 +86,10 @@ class ClienteYoutube(Thread):
 
 
 class GuardadorWAV(GuardadorBase):
+    TEMP = os.path.join(GuardadorBase.DATA_PATH, "gra_temp")
+
     def __init__(self, cliente_youtube, grabador=None):
         self.youtube = cliente_youtube
-        self.PATH = "%HOMEPATH%\\grabador\\"
-        self.TEMP = "C:\\gra_temp"
         super(GuardadorWAV, self).__init__(grabador)
 
     def run(self):
@@ -126,7 +127,7 @@ class GuardadorWAV(GuardadorBase):
 
     def interpretar_orden(self, orden, valor):
         if orden == "titulo":
-            self.archivo_name = self.PATH + valor + ".wav"
+            self.archivo_name = os.path.join(self.DATA_PATH, valor + ".wav")
         else:
             super(GuardadorWAV, self).interpretar_orden(orden, valor)
 
@@ -136,7 +137,7 @@ class GuardadorWAV(GuardadorBase):
             return
         elif self.archivo_name is not None and self.archivo is not None:
             self.archivo.close()
-        self.archivo_name = wave.open(self.archivo_name,"wb")
+        self.archivo_name = wave.open(self.archivo_name, "wb")
 
         print(self.archivo_name)
 
@@ -146,10 +147,10 @@ class GuardadorWAV(GuardadorBase):
 
 
 class GuardadorMP3(GuardadorBase):
+    TEMP = os.path.join(GuardadorBase.DATA_PATH, "gra_temp")
+
     def __init__(self, cliente_youtube, grabador=None):
         self.youtube = cliente_youtube
-        self.PATH = "C:\\Users\\Administrador\\grabado\\"
-        self.TEMP = "C:\\gra_temp"
         super(GuardadorMP3, self).__init__(grabador)
 
     def run(self):
@@ -190,7 +191,7 @@ class GuardadorMP3(GuardadorBase):
 
     def interpretar_orden(self, orden, valor):
         if orden == "titulo":
-            self.archivo_name = self.PATH + valor + ".mp3"
+            self.archivo_name = os.path.join(self.DATA_PATH, valor + ".mp3")
             print("Interpretar orden Nuevo titulo")
         elif orden == "saltar":
             self.archivo.close()
